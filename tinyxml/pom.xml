@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.sourceforge</groupId>
+	<artifactId>tinyxml-parent</artifactId>
+	<version>2.6.1</version>
+	<name>${project.artifactId}</name>
+	<packaging>pom</packaging>
+	<modules>
+		<module>tinyxml</module>
+		<module>tinystr</module>
+	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.sourceforge</groupId>
+				<artifactId>libtinystr</artifactId>
+				<version>${project.version}</version>
+				<classifier>a</classifier>
+				<type>cxx</type>
+			</dependency>
+			<dependency>
+				<groupId>net.sourceforge</groupId>
+				<artifactId>libtinyxml</artifactId>
+				<version>${project.version}</version>
+				<classifier>a</classifier>
+				<type>cxx</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>net.sourceforge</groupId>
+		<artifactId>tinyxml-parent</artifactId>
+		<version>2.6.1</version>
+	</parent>
+	<groupId>net.sourceforge</groupId>
+	<artifactId>libtinystr</artifactId>
+	<name>${project.artifactId}</name>
+	<packaging>cxx</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.hardisonbrewing</groupId>
+				<artifactId>maven-cxx-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<tool>ar</tool>
+					<sources>
+						<source>tinystr.cpp</source>
+					</sources>
+					<includes>
+						<include>tinystr.h</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

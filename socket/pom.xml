@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.hardisonbrewing</groupId>
+		<artifactId>commons-c-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>org.hardisonbrewing</groupId>
+	<artifactId>libhbc_socket</artifactId>
+	<name>${project.artifactId}</name>
+	<packaging>cxx</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.hardisonbrewing</groupId>
+				<artifactId>maven-cxx-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<tool>ar</tool>
+					<sources>
+						<source>socket.cc</source>
+						<source>socket_server.cc</source>
+						<source>socket_pair.cc</source>
+						<source>socket_client.cc</source>
+					</sources>
+					<includes>
+						<include>socket.h</include>
+						<include>socket_burst.h</include>
+						<include>socket_server.h</include>
+						<include>socket_client.h</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.hardisonbrewing</groupId>
+			<artifactId>libhbc_math</artifactId>
+			<classifier>a</classifier>
+			<type>cxx</type>
+		</dependency>
+	</dependencies>
+</project>

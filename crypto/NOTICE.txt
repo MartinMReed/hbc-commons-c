@@ -1,0 +1,5 @@
+This notice is included for the following files: md5.c, md5.h
+This is a copy of libmd5-rfc for use with the org.hardisonbrewing package.
+This copy of the source may include additions or changes.
+For a copy of the original source please visit the project's website at:
+http://www.sourceforge.net/projects/libmd5-rfc

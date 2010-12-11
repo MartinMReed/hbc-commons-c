@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.hardisonbrewing</groupId>
+		<artifactId>commons-c-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>org.hardisonbrewing</groupId>
+	<artifactId>libhbc_collections</artifactId>
+	<name>${project.artifactId}</name>
+	<packaging>cxx</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.hardisonbrewing</groupId>
+				<artifactId>maven-cxx-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<tool>ar</tool>
+					<sources>
+						<source>string_buffer.cc</source>
+					</sources>
+					<includes>
+						<include>buffer.h</include>
+						<include>bounded_buffer.h</include>
+						<include>bounded_buffer_impl.h</include>
+						<include>vector_buffer.h</include>
+						<include>vector_buffer_impl.h</include>
+						<include>string_buffer.h</include>
+						<include>enumeration.h</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

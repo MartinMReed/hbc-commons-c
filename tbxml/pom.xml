@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>uk.co.tbxml</groupId>
+	<artifactId>libtbxml</artifactId>
+	<version>1.4</version>
+	<name>${project.artifactId}</name>
+	<packaging>cxx</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.hardisonbrewing</groupId>
+				<artifactId>maven-cxx-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<tool>ar</tool>
+					<sources>
+						<source>NSDataAdditions.m</source>
+						<source>TBXML.m</source>
+					</sources>
+					<includes>
+						<include>NSDataAdditions.h</include>
+						<include>TBXML.h</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
