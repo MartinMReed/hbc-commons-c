@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>hbc_unit</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>g++</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,7 +17,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>g++</tool>
 					<sources>
 						<source>unit.cc</source>
 						<source>base/unit_base.cc</source>
@@ -52,44 +51,37 @@
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_stdio</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_crypto</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_curl</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_collections</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_thread</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_json</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge</groupId>
 			<artifactId>libtinyxml</artifactId>
 			<version>2.6.1</version>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 	</dependencies>
 </project>

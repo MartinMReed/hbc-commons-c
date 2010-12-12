@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>libhbc_socket</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>ar</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,7 +17,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>ar</tool>
 					<sources>
 						<source>socket.cc</source>
 						<source>socket_server.cc</source>
@@ -39,7 +38,6 @@
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_math</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 	</dependencies>
 </project>

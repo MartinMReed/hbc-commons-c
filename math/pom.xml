@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>libhbc_math</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>ar</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,7 +17,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>ar</tool>
 					<sources>
 						<source>math.cc</source>
 					</sources>

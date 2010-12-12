@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>libhbc_stdio</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>ar</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,7 +17,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>ar</tool>
 					<sources>
 						<source>file_input_stream.cc</source>
 					</sources>
@@ -35,7 +34,6 @@
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_string</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 	</dependencies>
 </project>

@@ -30,91 +30,78 @@
 				<artifactId>libhbc_time</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_crypto</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_stdio</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_math</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_string</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_curl</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_chunk</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_socket</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_thread</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_collections</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_json</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>hbc_arduino</artifactId>
 				<version>${project.version}</version>
 				<classifier>o</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>hbc_unit_tests</artifactId>
 				<version>${project.version}</version>
 				<classifier>o</classifier>
-				<type>cxx</type>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

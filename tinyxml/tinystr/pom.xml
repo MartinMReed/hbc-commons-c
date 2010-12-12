@@ -9,7 +9,7 @@
 	<groupId>net.sourceforge</groupId>
 	<artifactId>libtinystr</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>ar</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,7 +17,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>ar</tool>
 					<sources>
 						<source>tinystr.cpp</source>
 					</sources>

@@ -17,14 +17,12 @@
 				<artifactId>libtinystr</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 			<dependency>
 				<groupId>net.sourceforge</groupId>
 				<artifactId>libtinyxml</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
-				<type>cxx</type>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

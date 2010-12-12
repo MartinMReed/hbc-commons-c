@@ -9,7 +9,7 @@
 	<groupId>net.sourceforge</groupId>
 	<artifactId>libtinyxml</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>ar</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,7 +17,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>ar</tool>
 					<sources>
 						<source>tinyxml.cpp</source>
 						<source>tinyxmlerror.cpp</source>
@@ -36,7 +35,6 @@
 			<artifactId>libtinystr</artifactId>
 			<version>2.6.1</version>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 	</dependencies>
 </project>

@@ -5,7 +5,7 @@
 	<artifactId>libtbxml</artifactId>
 	<version>1.4</version>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>ar</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -13,7 +13,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>ar</tool>
 					<sources>
 						<source>NSDataAdditions.m</source>
 						<source>TBXML.m</source>

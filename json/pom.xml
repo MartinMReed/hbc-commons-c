@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>libhbc_json</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>cxx</packaging>
+	<packaging>ar</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,7 +17,6 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<tool>ar</tool>
 					<sources>
 						<source>json_pull_base.cc</source>
 						<source>json_pull.cc</source>
@@ -37,13 +36,11 @@
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_collections</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_stdio</artifactId>
 			<classifier>a</classifier>
-			<type>cxx</type>
 		</dependency>
 	</dependencies>
 </project>
