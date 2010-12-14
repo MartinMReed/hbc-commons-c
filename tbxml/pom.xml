@@ -5,7 +5,7 @@
 	<artifactId>libtbxml</artifactId>
 	<version>1.4</version>
 	<name>${project.artifactId}</name>
-	<packaging>ar</packaging>
+	<packaging>a</packaging>
 	<build>
 		<plugins>
 			<plugin>

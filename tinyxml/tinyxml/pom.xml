@@ -9,7 +9,7 @@
 	<groupId>net.sourceforge</groupId>
 	<artifactId>libtinyxml</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>ar</packaging>
+	<packaging>a</packaging>
 	<build>
 		<plugins>
 			<plugin>

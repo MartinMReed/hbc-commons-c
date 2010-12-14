@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>libhbc_chunk</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>ar</packaging>
+	<packaging>a</packaging>
 	<build>
 		<plugins>
 			<plugin>

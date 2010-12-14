@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>libhbc_math</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>ar</packaging>
+	<packaging>a</packaging>
 	<build>
 		<plugins>
 			<plugin>

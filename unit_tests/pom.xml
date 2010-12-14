@@ -9,7 +9,7 @@
 	<groupId>org.hardisonbrewing</groupId>
 	<artifactId>hbc_unit</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>g++</packaging>
+	<packaging>o</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,6 +17,7 @@
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
+					<language>c++</language>
 					<sources>
 						<source>unit.cc</source>
 						<source>base/unit_base.cc</source>
