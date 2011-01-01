@@ -16,16 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>tinyxml.cpp</source>
-						<source>tinyxmlerror.cpp</source>
-						<source>tinyxmlparser.cpp</source>
-					</sources>
-					<includes>
-						<include>tinyxml.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

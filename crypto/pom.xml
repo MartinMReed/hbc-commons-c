@@ -16,18 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>NSData+Base64.mm</source>
-						<source>base64.cc</source>
-						<source>md5.c</source>
-					</sources>
-					<includes>
-						<include>NSData+Base64.h</include>
-						<include>base64.h</include>
-						<include>md5.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

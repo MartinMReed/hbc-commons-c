@@ -16,20 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>socket.cc</source>
-						<source>socket_server.cc</source>
-						<source>socket_pair.cc</source>
-						<source>socket_client.cc</source>
-					</sources>
-					<includes>
-						<include>socket.h</include>
-						<include>socket_burst.h</include>
-						<include>socket_server.h</include>
-						<include>socket_client.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

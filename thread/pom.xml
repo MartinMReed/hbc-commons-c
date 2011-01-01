@@ -16,15 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>thread_queue.cc</source>
-					</sources>
-					<includes>
-						<include>thread_queue.h</include>
-						<include>runnable.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

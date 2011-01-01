@@ -18,28 +18,6 @@
 				<extensions>true</extensions>
 				<configuration>
 					<language>c++</language>
-					<sources>
-						<source>unit.cc</source>
-						<source>base/unit_base.cc</source>
-						<source>thread/test.cc</source>
-						<source>tinyxml/test.cc</source>
-						<source>collections/test.cc</source>
-						<source>curl_input_stream/test.cc</source>
-						<source>file_input_stream/test.cc</source>
-						<source>json/test.cc</source>
-					</sources>
-					<includes>
-						<include>base/unit_base.h</include>
-						<include>thread/test.h</include>
-						<include>tinyxml/test.h</include>
-						<include>tinyxml/utf8test.xml</include>
-						<include>tinyxml/utf8testverify.xml</include>
-						<include>collections/test.h</include>
-						<include>curl_input_stream/test.h</include>
-						<include>file_input_stream/test.h</include>
-						<include>json/test.h</include>
-						<include>json/watch_on_mobile.json</include>
-					</includes>
 					<libs>
 						<lib>curl</lib>
 					</libs>

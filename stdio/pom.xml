@@ -16,16 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>file_input_stream.cc</source>
-					</sources>
-					<includes>
-						<include>stdio.h</include>
-						<include>input_stream.h</include>
-						<include>file_input_stream.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

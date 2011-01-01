@@ -16,14 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>tinystr.cpp</source>
-					</sources>
-					<includes>
-						<include>tinystr.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

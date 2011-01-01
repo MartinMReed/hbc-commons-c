@@ -12,16 +12,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>NSDataAdditions.m</source>
-						<source>TBXML.m</source>
-					</sources>
-					<includes>
-						<include>NSDataAdditions.h</include>
-						<include>TBXML.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

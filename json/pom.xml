@@ -16,18 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>json_pull_base.cc</source>
-						<source>json_pull.cc</source>
-						<source>json_enumeration.cc</source>
-					</sources>
-					<includes>
-						<include>json_pull.h</include>
-						<include>json_enumeration.h</include>
-						<include>json_syntax.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

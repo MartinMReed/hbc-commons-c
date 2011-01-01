@@ -16,14 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>chunk.cc</source>
-					</sources>
-					<includes>
-						<include>chunk.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -16,20 +16,6 @@
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<sources>
-						<source>string_buffer.cc</source>
-					</sources>
-					<includes>
-						<include>buffer.h</include>
-						<include>bounded_buffer.h</include>
-						<include>bounded_buffer_impl.h</include>
-						<include>vector_buffer.h</include>
-						<include>vector_buffer_impl.h</include>
-						<include>string_buffer.h</include>
-						<include>enumeration.h</include>
-					</includes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
