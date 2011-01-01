@@ -1,4 +1,0 @@
-This is a copy of TBXML for use with the org.hardisonbrewing package.
-This copy of the source may include additions or changes.
-For a copy of the original source please visit the project's website at:
-http://www.tbxml.co.uk
