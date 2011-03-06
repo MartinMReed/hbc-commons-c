@@ -164,7 +164,7 @@ char** hbcn_string::split(char* text, char c) {
         
         result = (char**) calloc(++result_len, sizeof(char*));
         
-        memcpy(result, _result, _result_len - 1 * sizeof(char*));
+        memcpy(result, _result, (_result_len - 1) * sizeof(char*));
         free(_result);
       }
       
