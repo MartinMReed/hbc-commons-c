@@ -11,6 +11,14 @@
 	<name>${project.artifactId}</name>
 	<packaging>o</packaging>
 	<build>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<includes>
+					<include>**/*.h</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.hardisonbrewing</groupId>
@@ -18,6 +26,14 @@
 				<extensions>true</extensions>
 				<configuration>
 					<language>c++</language>
+					<sources>
+						<includes>
+							<include>**/*.cc</include>
+						</includes>
+						<excludes>
+							<exclude>**/*.h</exclude>
+						</excludes>
+					</sources>
 					<libs>
 						<lib>curl</lib>
 					</libs>

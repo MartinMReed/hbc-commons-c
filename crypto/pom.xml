@@ -11,11 +11,31 @@
 	<name>${project.artifactId}</name>
 	<packaging>a</packaging>
 	<build>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<includes>
+					<include>**/*.h</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
 				<extensions>true</extensions>
+				<configuration>
+					<sources>
+						<includes>
+							<include>**/*.c</include>
+							<include>**/*.cc</include>
+							<include>**/*.mm</include>
+						</includes>
+						<excludes>
+							<exclude>**/*.h</exclude>
+						</excludes>
+					</sources>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
