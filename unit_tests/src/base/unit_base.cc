@@ -17,6 +17,8 @@
 
 #include "unit_base.h"
 
+#include <stdio.h>
+
 #include <queue>
 using namespace std;
 
