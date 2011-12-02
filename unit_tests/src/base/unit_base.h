@@ -22,7 +22,7 @@ typedef int (*unit_test)(void);
 
 struct unit_runnable {
 
-  char* name;
+  const char* name;
   unit_test test;
   int failable;
 };
