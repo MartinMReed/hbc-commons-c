@@ -19,6 +19,8 @@
 #include "json_pull.h"
 #include "json_syntax.h"
 
+#include <string.h>
+
 hbcn_json::json_pull::json_pull(input_stream* input_stream) {
 
   m_input_stream = input_stream;
