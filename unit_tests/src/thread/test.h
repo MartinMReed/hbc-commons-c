@@ -20,6 +20,8 @@
 #include "../libhbc_thread/thread_queue.h"
 using namespace hbcn_thread;
 
+#include <stdio.h>
+
 class thread_runnable : public runnable {
 
   public:
