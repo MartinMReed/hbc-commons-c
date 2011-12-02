@@ -23,6 +23,8 @@ using namespace hbcn_stdio;
 #include "../libhbc_json/json_pull.h"
 using namespace hbcn_json;
 
+#include <string.h>
+
 void parse_objects(json_pull& parser, int level);
 void parse_feed(json_pull& parser, int level);
 
