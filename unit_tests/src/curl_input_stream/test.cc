@@ -22,7 +22,7 @@
 #include "../libhbc_curl/curl_input_stream.h"
 using namespace hbcn_curl;
 
-#include <string>
+#include <string.h>
 
 int curl_input_stream_test() {
   
