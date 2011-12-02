@@ -17,6 +17,8 @@
 
 #include "thread_queue.h"
 
+#include <stdio.h>
+
 /**
  *
  */
