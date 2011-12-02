@@ -19,7 +19,7 @@
 		<module>chunk</module>
 		<module>socket</module>
 		<module>thread</module>
-		<module>tbxml</module>
+<!-- 		<module>tbxml</module> -->
 		<module>tinyxml</module>
 		<module>collections</module>
 		<module>json</module>
