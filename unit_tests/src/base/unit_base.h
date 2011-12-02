@@ -27,7 +27,7 @@ struct unit_runnable {
   int failable;
 };
 
-void add_test(char* name, unit_test test, int failable = 0);
+void add_test(const char* name, unit_test test, int failable = 0);
 
 int run_tests();
 
