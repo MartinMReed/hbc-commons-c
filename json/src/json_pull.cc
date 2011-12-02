@@ -20,6 +20,8 @@
 #include "json_syntax.h"
 using namespace hbcn_json;
 
+#include <string.h>
+
 json_enumeration* hbcn_json::json_pull::object_elements() {
 
   if (next(D_START_OBJECT)) {
