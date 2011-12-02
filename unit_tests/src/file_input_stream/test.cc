@@ -22,7 +22,7 @@
 #include "../libhbc_stdio/file_input_stream.h"
 using namespace hbcn_stdio;
 
-#include <string>
+#include <string.h>
 
 int file_input_stream_test() {
   
