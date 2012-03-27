@@ -32,9 +32,6 @@
 								<include>**/*.cc</include>
 								<include>**/*.mm</include>
 							</includes>
-							<excludes>
-								<exclude>**/*.h</exclude>
-							</excludes>
 						</source>
 					</sources>
 				</configuration>

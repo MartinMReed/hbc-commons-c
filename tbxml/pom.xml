@@ -31,9 +31,6 @@
 							<includes>
 								<include>**/*.m</include>
 							</includes>
-							<excludes>
-								<exclude>**/*.h</exclude>
-							</excludes>
 						</source>
 					</sources>
 				</configuration>

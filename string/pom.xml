@@ -30,9 +30,6 @@
 							<includes>
 								<include>**/*.cc</include>
 							</includes>
-							<excludes>
-								<exclude>**/*.h</exclude>
-							</excludes>
 						</source>
 					</sources>
 				</configuration>
