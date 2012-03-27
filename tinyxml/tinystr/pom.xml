@@ -26,12 +26,14 @@
 				<extensions>true</extensions>
 				<configuration>
 					<sources>
-						<includes>
-							<include>**/*.cpp</include>
-						</includes>
-						<excludes>
-							<exclude>**/*.h</exclude>
-						</excludes>
+						<source>
+							<includes>
+								<include>**/*.cpp</include>
+							</includes>
+							<excludes>
+								<exclude>**/*.h</exclude>
+							</excludes>
+						</source>
 					</sources>
 				</configuration>
 			</plugin>

@@ -26,14 +26,16 @@
 				<extensions>true</extensions>
 				<configuration>
 					<sources>
-						<includes>
-							<include>**/*.c</include>
-							<include>**/*.cc</include>
-							<include>**/*.mm</include>
-						</includes>
-						<excludes>
-							<exclude>**/*.h</exclude>
-						</excludes>
+						<source>
+							<includes>
+								<include>**/*.c</include>
+								<include>**/*.cc</include>
+								<include>**/*.mm</include>
+							</includes>
+							<excludes>
+								<exclude>**/*.h</exclude>
+							</excludes>
+						</source>
 					</sources>
 				</configuration>
 			</plugin>

@@ -27,12 +27,14 @@
 				<extensions>true</extensions>
 				<configuration>
 					<sources>
-						<includes>
-							<include>**/*.m</include>
-						</includes>
-						<excludes>
-							<exclude>**/*.h</exclude>
-						</excludes>
+						<source>
+							<includes>
+								<include>**/*.m</include>
+							</includes>
+							<excludes>
+								<exclude>**/*.h</exclude>
+							</excludes>
+						</source>
 					</sources>
 				</configuration>
 			</plugin>

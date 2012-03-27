@@ -27,12 +27,14 @@
 				<configuration>
 					<language>c++</language>
 					<sources>
-						<includes>
-							<include>**/*.cc</include>
-						</includes>
-						<excludes>
-							<exclude>**/*.h</exclude>
-						</excludes>
+						<source>
+							<includes>
+								<include>**/*.cc</include>
+							</includes>
+							<excludes>
+								<exclude>**/*.h</exclude>
+							</excludes>
+						</source>
 					</sources>
 					<libs>
 						<lib>curl</lib>
