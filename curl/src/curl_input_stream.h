@@ -59,7 +59,7 @@ namespace hbcn_curl {
     
     const char* url;
     
-    buffer<unsigned char>* buffer;
+    hbcn_collections::buffer<unsigned char>* buffer;
     
     int stream_state;
   };

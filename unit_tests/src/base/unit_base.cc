@@ -17,12 +17,14 @@
 
 #include "unit_base.h"
 
+#include <stdio.h>
+
 #include <queue>
 using namespace std;
 
 queue<unit_runnable*> tests;
 
-void add_test(char* name, unit_test test, int failable) {
+void add_test(const char* name, unit_test test, int failable) {
 
   unit_runnable* runnable = new unit_runnable();
   runnable->name = name;

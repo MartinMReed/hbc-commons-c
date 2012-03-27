@@ -17,6 +17,7 @@
 
 #include "socket_server.h"
 
+#include <stdio.h>
 #include <strings.h>
 #include <iostream>
 
