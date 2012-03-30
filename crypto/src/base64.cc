@@ -25,7 +25,7 @@ using namespace hbcn_base64;
 
 namespace hbcn_base64 {
 
-  void encode_block(unsigned char in[3], unsigned char out[4], int len) {
+  void encode_block(unsigned char in[3], char out[4], int len) {
   
     out[0] = ENCODER[in[0] >> 2];
     out[1] = ENCODER[((in[0] & 0x03) << 4) | ((in[1] & 0xf0) >> 4)];
@@ -33,14 +33,14 @@ namespace hbcn_base64 {
     out[3] = (len > 2) ? ENCODER[in[2] & 0x3f] : PADDING;
   }
   
-  void decode_block(unsigned char in[4], unsigned char out[3]) {
+  void decode_block(char in[4], unsigned char out[3]) {
   
     out[0] = (in[0] << 0x02) | ((in[1] & 0x30) >> 4);
     out[1] = ((in[1] & 0x0f) << 4) | ((in[2] & 0x3c) >> 2);
     out[2] = ((in[2] & 0x03) << 6) | in[3];
   }
   
-  unsigned char decode_value(const unsigned char in) {
+  unsigned char decode_value(const char in) {
   
     if (in == PADDING) {
     
@@ -69,9 +69,10 @@ int hbcn_base64::decoded_length(int length) {
   return length*(3/4);
 }
 
-void hbcn_base64::encode(const unsigned char* decoded, unsigned char* encoded, int decoded_length) {
+void hbcn_base64::encode(const unsigned char* decoded, char* encoded, int decoded_length) {
 
-  unsigned char in[3], out[4];
+  unsigned char in[3];
+  char out[4];
   
   for (int i = 0, j = 0; i < decoded_length; i += 3, j += 4) {
   
@@ -94,9 +95,10 @@ void hbcn_base64::encode(const unsigned char* decoded, unsigned char* encoded, i
   }
 }
 
-void hbcn_base64::decode(const unsigned char* encoded, unsigned char* decoded, int encoded_length) {
+void hbcn_base64::decode(const char* encoded, unsigned char* decoded, int encoded_length) {
 
-  unsigned char in[4], out[3];
+  char in[4];
+  unsigned char out[3];
   
   for (int i = 0, j = 0; i < encoded_length; i += 4, j += 3) {
   

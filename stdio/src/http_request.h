@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009-2010 Martin M Reed
+ * Copyright (c) 2012 Martin M Reed
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,16 +15,26 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef HBC_BASE64_H
-#define HBC_BASE64_H
+#ifndef HBC_HTTP_REQUEST_H
+#define HBC_HTTP_REQUEST_H
 
-namespace hbcn_base64 {
+#include <map>
 
-  int encoded_length(int decoded_length);
-  int decoded_length(int encoded_length);
+#define POST "POST"
+#define GET "GET"
+
+namespace hbcn_stdio {
+
+  class http_request {
   
-  void encode(const unsigned char* decoded, char* encoded, int decoded_length);
-  void decode(const char* encoded, unsigned char* decoded, int encoded_length);
+    public:
+
+      std::string method;
+      std::string url;
+      std::string content_type;
+      std::vector<unsigned char> post_data;
+      std::map<std::string, std::string> headers;
+  };
 }
 
 #endif
