@@ -39,7 +39,7 @@ namespace hbcn_curl {
     
     public:
     
-    curl_input_stream(const char* url);
+    curl_input_stream(CURL* curl);
     ~curl_input_stream();
     
     int read(unsigned char* data, int length);
@@ -54,7 +54,7 @@ namespace hbcn_curl {
     pthread_cond_t read_cond;
     pthread_cond_t write_cond;
     
-    const char* url;
+    CURL* curl;
     
     std::deque<unsigned char>* buffer;
     

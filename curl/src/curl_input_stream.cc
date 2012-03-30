@@ -34,13 +34,13 @@ enum {
   STATE_EOS
 };
 
-hbcn_curl::curl_input_stream::curl_input_stream(const char* url) {
+hbcn_curl::curl_input_stream::curl_input_stream(CURL* curl) {
+
+  this->curl = curl;
 
   pthread_mutex_init(&waiting_mutex, 0);
   pthread_cond_init(&read_cond, 0);
   pthread_cond_init(&write_cond, 0);
-  
-  this->url = url;
   
   buffer = new std::deque<unsigned char>();
   
@@ -98,16 +98,10 @@ void* hbcn_curl::thread_that(void* cookie) {
 
 void curl_input_stream::thread_this() {
 
-  CURL* curl = curl_easy_init();
-  
-  curl_easy_setopt(curl, CURLOPT_URL, url);
-  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1);
   curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, BUFFERSIZE);
   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &hbcn_curl::buffer_input);
   curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
-  curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 15);
-  curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30);
-  
+
   stream_state = STATE_INITIAL_READ;
   
   try
@@ -120,8 +114,6 @@ void curl_input_stream::thread_this() {
   }
   
   stream_state = STATE_EOS;
-  
-  curl_easy_cleanup(curl);
 
   pthread_mutex_lock(&waiting_mutex);
   pthread_cond_signal(&read_cond);
