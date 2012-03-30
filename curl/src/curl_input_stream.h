@@ -20,12 +20,10 @@
 
 #include <curl/curl.h>
 #include <pthread.h>
+#include <queue>
 
-#include "libhbc_stdio/input_stream.h"
+#include "../stdio/input_stream.h"
 using namespace hbcn_stdio;
-
-#include "libhbc_collections/bounded_buffer.h"
-using namespace hbcn_collections;
 
 namespace hbcn_curl {
 
@@ -51,15 +49,14 @@ namespace hbcn_curl {
     size_t buffer_input(unsigned char* data, size_t size, size_t nitems);
     
     void thread_this();
-    
-    pthread_rwlock_t rwlock;
+
     pthread_mutex_t waiting_mutex;
     pthread_cond_t read_cond;
     pthread_cond_t write_cond;
     
     const char* url;
     
-    hbcn_collections::buffer<unsigned char>* buffer;
+    std::deque<unsigned char>* buffer;
     
     int stream_state;
   };
