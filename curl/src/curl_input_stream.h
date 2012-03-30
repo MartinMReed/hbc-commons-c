@@ -22,7 +22,7 @@
 #include <pthread.h>
 #include <queue>
 
-#include "../stdio/input_stream.h"
+#include "libhbc_stdio/stdio/input_stream.h"
 using namespace hbcn_stdio;
 
 namespace hbcn_curl {
