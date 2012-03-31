@@ -25,14 +25,14 @@
 #include <netinet/in.h>
 
 #include "libhbc_math/math.h"
-using namespace hbcn_math;
+using namespace hbc;
 
 #include "socket.h"
 
 /**
  *
  */
-hbcn_socket::hbc_socket::hbc_socket() {
+hbc::hbc_socket::hbc_socket() {
 
   read_buffer = new unsigned char[BURST_MAX];
   write_buffer = new unsigned char[BURST_MAX];
@@ -41,7 +41,7 @@ hbcn_socket::hbc_socket::hbc_socket() {
 /**
  *
  */
-hbcn_socket::hbc_socket::~hbc_socket() {
+hbc::hbc_socket::~hbc_socket() {
 
   disconnect();
   
@@ -58,7 +58,7 @@ hbcn_socket::hbc_socket::~hbc_socket() {
 /**
  *
  */
-void hbcn_socket::hbc_socket::disconnect() {
+void hbc::hbc_socket::disconnect() {
 
   if (fd) {
   
@@ -70,7 +70,7 @@ void hbcn_socket::hbc_socket::disconnect() {
 /**
  *
  */
-void hbcn_socket::hbc_socket::assert_fd_set() {
+void hbc::hbc_socket::assert_fd_set() {
 
   if (!fd) {
   
@@ -85,7 +85,7 @@ void hbcn_socket::hbc_socket::assert_fd_set() {
  * @param payload The packet-burst payload.
  * @param length The byte count of the payload parameter.
  */
-void hbcn_socket::hbc_socket::write(const unsigned char* payload, int length) {
+void hbc::hbc_socket::write(const unsigned char* payload, int length) {
 
   assert_fd_set();
   
@@ -109,7 +109,7 @@ void hbcn_socket::hbc_socket::write(const unsigned char* payload, int length) {
  * @param payload The packet-burst payload.
  * @param length The byte count of the payload parameter.
  */
-int hbcn_socket::hbc_socket::write(const unsigned char* payload, int length, int offset) {
+int hbc::hbc_socket::write(const unsigned char* payload, int length, int offset) {
 
   assert_fd_set();
   
@@ -141,7 +141,7 @@ int hbcn_socket::hbc_socket::write(const unsigned char* payload, int length, int
  * @return true if the Client/Server should continue
  * their conversation.
  */
-int hbcn_socket::hbc_socket::read() {
+int hbc::hbc_socket::read() {
 
   assert_fd_set();
   

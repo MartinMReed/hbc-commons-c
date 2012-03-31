@@ -19,7 +19,7 @@
 
 #include "math.h"
 
-int hbcn_math::num_digits(int num) {
+int hbc::num_digits(int num) {
 
   return (num == 0) ? 1 : floor(log10(num) + 1);
 }

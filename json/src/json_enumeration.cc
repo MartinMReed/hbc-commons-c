@@ -19,14 +19,14 @@
 #include "json_enumeration.h"
 #include "json_pull.h"
 
-hbcn_json::json_enumeration::json_enumeration(json_pull* parser, int level, int terminator) {
+hbc::json_enumeration::json_enumeration(json_pull* parser, int level, int terminator) {
 
   this->parser = parser;
   this->level = level;
   this->terminator = terminator;
 }
 
-int hbcn_json::json_enumeration::has_more_elements() {
+int hbc::json_enumeration::has_more_elements() {
 
   if (terminator != -1) {
   
@@ -43,7 +43,7 @@ int hbcn_json::json_enumeration::has_more_elements() {
   return 0;
 }
 
-const char* hbcn_json::json_enumeration::next_element() {
+const char* hbc::json_enumeration::next_element() {
 
   return parser->get_key();
 }

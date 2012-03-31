@@ -22,7 +22,7 @@
 
 #include "buffer.h"
 
-namespace hbcn_collections {
+namespace hbc {
 
   template<class T> class vector_buffer : public buffer<T> {
   

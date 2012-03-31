@@ -30,7 +30,7 @@
  *
  * @param port The port address to bind to.
  */
-hbcn_socket::socket_server::socket_server(int port) {
+hbc::socket_server::socket_server(int port) {
 
   this->port = port;
 }
@@ -38,7 +38,7 @@ hbcn_socket::socket_server::socket_server(int port) {
 /**
  * Destroy the server and close the socket.
  */
-hbcn_socket::socket_server::~socket_server() {
+hbc::socket_server::~socket_server() {
 
   port = 0;
 }
@@ -46,7 +46,7 @@ hbcn_socket::socket_server::~socket_server() {
 /**
  *
  */
-void hbcn_socket::socket_server::connect() {
+void hbc::socket_server::connect() {
 
   // open a socket to listen on
   fd = ::socket(AF_INET, SOCK_STREAM, 0);
@@ -74,7 +74,7 @@ void hbcn_socket::socket_server::connect() {
 /**
  *
  */
-void hbcn_socket::socket_server::start() {
+void hbc::socket_server::start() {
 
   // listen on the socket for client connections
   listen(fd, 2);
@@ -91,7 +91,7 @@ void hbcn_socket::socket_server::start() {
  * to keep listening for more connections. Otherwise return false
  * since the client pair is done reading.
  */
-int hbcn_socket::socket_server::accept_socket() {
+int hbc::socket_server::accept_socket() {
   
   struct sockaddr_in c_addr;
   int c_addr_len = sizeof(c_addr);
@@ -120,7 +120,7 @@ int hbcn_socket::socket_server::accept_socket() {
     }
     
     pthread_t pthread;
-    pthread_create(&pthread, 0, &hbcn_socket::start_pairing, socket);
+    pthread_create(&pthread, 0, &hbc::start_pairing, socket);
   }
 
   return 1;
@@ -129,7 +129,7 @@ int hbcn_socket::socket_server::accept_socket() {
 /**
  * 
  */
-void* hbcn_socket::start_pairing(void* cookie) {
+void* hbc::start_pairing(void* cookie) {
   
   socket_pair* socket = (socket_pair*) cookie;
   socket->start();

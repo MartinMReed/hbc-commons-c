@@ -19,11 +19,15 @@
 #define HBC_HTTP_REQUEST_H
 
 #include <map>
+#include <string>
+#include <vector>
 
-#define POST "POST"
-#define GET "GET"
+#include <curl/curl.h>
 
-namespace hbcn_stdio {
+#define HTTP_POST "POST"
+#define HTTP_GET "GET"
+
+namespace hbc {
 
   class http_request {
   
@@ -34,6 +38,8 @@ namespace hbcn_stdio {
       std::string content_type;
       std::vector<unsigned char> post_data;
       std::map<std::string, std::string> headers;
+
+      CURL* get_curl();
   };
 }
 

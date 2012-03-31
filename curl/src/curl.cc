@@ -22,12 +22,12 @@
 #include "libhbc_math/math.h"
 
 #include "curl.h"
-using namespace hbcn_curl;
+using namespace hbc;
 
 /*
  *
  */
-hbcn_curl::curler::curler(const char* url) {
+hbc::curler::curler(const char* url) {
 
   this->url = url;
   
@@ -42,7 +42,7 @@ hbcn_curl::curler::curler(const char* url) {
 /*
  *
  */
-hbcn_curl::curler::~curler() {
+hbc::curler::~curler() {
 
   on_init = 0;
   on_perform_start = 0;
@@ -55,7 +55,7 @@ hbcn_curl::curler::~curler() {
 /*
  *
  */
-void hbcn_curl::curler::init() {
+void hbc::curler::init() {
 
   curl_easy_setopt(curl, CURLOPT_URL, url);
   curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1);
@@ -64,7 +64,7 @@ void hbcn_curl::curler::init() {
 /*
  *
  */
-void hbcn_curl::curler::perform() {
+void hbc::curler::perform() {
 
   curl_easy_perform(curl);
 }
@@ -72,7 +72,7 @@ void hbcn_curl::curler::perform() {
 /*
  *
  */
-void hbcn_curl::curler::cleanup() {
+void hbc::curler::cleanup() {
 
   curl_easy_cleanup(curl);
 }
@@ -80,7 +80,7 @@ void hbcn_curl::curler::cleanup() {
 /*
  *
  */
-int hbcn_curl::curler::download() {
+int hbc::curler::download() {
 
   if (curl = curl_easy_init()) {
   

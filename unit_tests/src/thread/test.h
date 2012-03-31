@@ -18,7 +18,7 @@
 #define THREAD_TEST_H
 
 #include "../libhbc_thread/thread_queue.h"
-using namespace hbcn_thread;
+using namespace hbc;
 
 #include <stdio.h>
 

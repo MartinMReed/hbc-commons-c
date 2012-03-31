@@ -21,11 +21,11 @@
 #include <string.h>
 
 #include "libhbc_math/math.h"
-using namespace hbcn_math;
+using namespace hbc;
 
 #include "chunk.h"
 
-size_t hbcn_chunk::chunk_write(void* buffer, size_t size, size_t nitems, void* stream) {
+size_t hbc::chunk_write(void* buffer, size_t size, size_t nitems, void* stream) {
 
   chunker* chunker = (struct chunker*) stream;
   
@@ -51,7 +51,7 @@ size_t hbcn_chunk::chunk_write(void* buffer, size_t size, size_t nitems, void* s
   return size * nitems;
 }
 
-void hbcn_chunk::chunker::create_new_chunk() {
+void hbc::chunker::create_new_chunk() {
 
   if (file) {
   
@@ -71,24 +71,24 @@ void hbcn_chunk::chunker::create_new_chunk() {
   }
 }
 
-void hbcn_chunk::chunker::close_chunk() {
+void hbc::chunker::close_chunk() {
 
   fclose(file);
   file = 0;
 }
 
-void hbcn_chunk::chunker::cleanup() {
+void hbc::chunker::cleanup() {
 
   close_chunk();
   
-  hbcn_curl::curler::cleanup();
+  hbc::curler::cleanup();
 }
 
-void hbcn_chunk::chunker::init() {
+void hbc::chunker::init() {
 
-  hbcn_curl::curler::init();
+  hbc::curler::init();
   
-  curl_easy_setopt(get_curl(), CURLOPT_WRITEFUNCTION, &hbcn_chunk::chunk_write);
+  curl_easy_setopt(get_curl(), CURLOPT_WRITEFUNCTION, &hbc::chunk_write);
   curl_easy_setopt(get_curl(), CURLOPT_WRITEDATA, this);
   
   mkdir(directory, 0757);
@@ -96,7 +96,7 @@ void hbcn_chunk::chunker::init() {
   create_new_chunk();
 }
 
-hbcn_chunk::chunker::chunker(const char* url, const char* directory, int chunk_size) : hbcn_curl::curler(url) {
+hbc::chunker::chunker(const char* url, const char* directory, int chunk_size) : hbc::curler(url) {
 
   file_id = 0;
   size = 0;
@@ -109,7 +109,7 @@ hbcn_chunk::chunker::chunker(const char* url, const char* directory, int chunk_s
   on_close_chunk = 0;
 }
 
-hbcn_chunk::chunker::~chunker() {
+hbc::chunker::~chunker() {
 
   if (directory) {
   

@@ -20,15 +20,15 @@
 #define HBC_JSON_PULL_H
 
 #include "libhbc_stdio/input_stream.h"
-using namespace hbcn_stdio;
+using namespace hbc;
 
 #include "libhbc_collections/enumeration.h"
 #include "libhbc_collections/string_buffer.h"
-using namespace hbcn_collections;
+using namespace hbc;
 
 #include "json_enumeration.h"
 
-namespace hbcn_json {
+namespace hbc {
 
   class json_pull {
   

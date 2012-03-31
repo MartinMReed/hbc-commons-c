@@ -18,11 +18,11 @@
 
 #include "json_pull.h"
 #include "json_syntax.h"
-using namespace hbcn_json;
+using namespace hbc;
 
 #include <string.h>
 
-json_enumeration* hbcn_json::json_pull::object_elements() {
+json_enumeration* hbc::json_pull::object_elements() {
 
   if (next(D_START_OBJECT)) {
   
@@ -34,7 +34,7 @@ json_enumeration* hbcn_json::json_pull::object_elements() {
   }
 }
 
-json_enumeration* hbcn_json::json_pull::array_elements() {
+json_enumeration* hbc::json_pull::array_elements() {
 
   if (next(D_START_ARRAY)) {
   
@@ -46,14 +46,14 @@ json_enumeration* hbcn_json::json_pull::array_elements() {
   }
 }
 
-int hbcn_json::json_pull::next(int assertEvent) {
+int hbc::json_pull::next(int assertEvent) {
 
   int event = next();
   assert_event_type(event, assertEvent);
   return !(event == D_NULL && (assertEvent == D_START_ARRAY || assertEvent == D_START_OBJECT));
 }
 
-void hbcn_json::json_pull::assert_event_type(int actual, int expected) {
+void hbc::json_pull::assert_event_type(int actual, int expected) {
 
   if (actual != D_NULL && actual != expected) {
   
@@ -61,7 +61,7 @@ void hbcn_json::json_pull::assert_event_type(int actual, int expected) {
   }
 }
 
-int hbcn_json::json_pull::seek_in_object(const char* key) {
+int hbc::json_pull::seek_in_object(const char* key) {
 
   json_enumeration* enumerator = object_elements();
   
@@ -78,60 +78,60 @@ int hbcn_json::json_pull::seek_in_object(const char* key) {
   return 0;
 }
 
-char* hbcn_json::json_pull::try_get_string_value(const char* key) {
+char* hbc::json_pull::try_get_string_value(const char* key) {
 
   return seek_in_object(key) ? get_string_value() : 0;
 }
 
-const char* hbcn_json::json_pull::get_key() {
+const char* hbc::json_pull::get_key() {
 
   next(D_KEY);
   return string_value;
 }
 
-char* hbcn_json::json_pull::get_string_value() {
+char* hbc::json_pull::get_string_value() {
 
   next(D_STRING);
   return string_value;
 }
 
-char* hbcn_json::json_pull::get_escaped_string_value() {
+char* hbc::json_pull::get_escaped_string_value() {
 
   next(D_STRING);
   return string_value;
 }
 
-char* hbcn_json::json_pull::get_variable_value() {
+char* hbc::json_pull::get_variable_value() {
 
   next(D_VARIABLE);
   return string_value;
 }
 
-int hbcn_json::json_pull::get_boolean_value() {
+int hbc::json_pull::get_boolean_value() {
 
   next();
   return strcmp("true", string_value) == 0;
 }
 
-int hbcn_json::json_pull::get_integer_value() {
+int hbc::json_pull::get_integer_value() {
 
   next();
   return atoi(string_value);
 }
 
-double hbcn_json::json_pull::get_double_value() {
+double hbc::json_pull::get_double_value() {
 
   next();
   return (double)atof(string_value);
 }
 
-long hbcn_json::json_pull::get_long_value() {
+long hbc::json_pull::get_long_value() {
 
   next();
   return atol(string_value);
 }
 
-long hbcn_json::json_pull::get_date_value() {
+long hbc::json_pull::get_date_value() {
 
   char* text = get_string_value();
   int start = strstr(text, "\\/Date(") - text;

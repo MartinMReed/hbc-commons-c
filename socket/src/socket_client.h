@@ -20,7 +20,7 @@
 
 #include "socket.h"
 
-namespace hbcn_socket {
+namespace hbc {
 
   class socket_client : public hbc_socket {
   

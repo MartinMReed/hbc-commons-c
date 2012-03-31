@@ -20,9 +20,9 @@
 #define HBC_JSON_ENUMERATION_H
 
 #include "libhbc_collections/enumeration.h"
-using namespace hbcn_collections;
+using namespace hbc;
 
-namespace hbcn_json {
+namespace hbc {
 
   class json_pull;
   

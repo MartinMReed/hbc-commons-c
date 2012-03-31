@@ -31,7 +31,7 @@
  *
  * @param port The port address to bind to.
  */
-hbcn_socket::socket_client::socket_client(const char* hostname, int port) {
+hbc::socket_client::socket_client(const char* hostname, int port) {
 
   this->hostname = hostname;
   this->port = port;
@@ -40,7 +40,7 @@ hbcn_socket::socket_client::socket_client(const char* hostname, int port) {
 /**
  * Destroy the server and close the socket.
  */
-hbcn_socket::socket_client::~socket_client() {
+hbc::socket_client::~socket_client() {
 
   hostname = 0;
   port = 0;
@@ -49,7 +49,7 @@ hbcn_socket::socket_client::~socket_client() {
 /**
  *
  */
-void hbcn_socket::socket_client::connect() {
+void hbc::socket_client::connect() {
 
   // open a socket to listen on
   fd = ::socket(AF_INET, SOCK_STREAM, 0);
@@ -82,7 +82,7 @@ void hbcn_socket::socket_client::connect() {
 /**
  *
  */
-void hbcn_socket::socket_client::start() {
+void hbc::socket_client::start() {
   
   while (read());
 }

@@ -16,7 +16,6 @@
  */
 
 #include "curl_input_stream.h"
-using namespace hbcn_curl;
 
 #include <sys/wait.h>
 #include <signal.h>
@@ -34,7 +33,7 @@ enum {
   STATE_EOS
 };
 
-hbcn_curl::curl_input_stream::curl_input_stream(CURL* curl) {
+hbc::curl_input_stream::curl_input_stream(CURL* curl) {
 
   this->curl = curl;
 
@@ -47,7 +46,7 @@ hbcn_curl::curl_input_stream::curl_input_stream(CURL* curl) {
   stream_state = STATE_CLOSED;
 }
 
-hbcn_curl::curl_input_stream::~curl_input_stream() {
+hbc::curl_input_stream::~curl_input_stream() {
 
   pthread_mutex_destroy(&waiting_mutex);
   pthread_cond_destroy(&read_cond);
@@ -60,12 +59,12 @@ hbcn_curl::curl_input_stream::~curl_input_stream() {
   }
 }
 
-size_t hbcn_curl::buffer_input(unsigned char* data, size_t size, size_t nitems, curl_input_stream* input_stream) {
+size_t hbc::buffer_input(unsigned char* data, size_t size, size_t nitems, curl_input_stream* input_stream) {
 
   return input_stream->buffer_input(data, size, nitems);
 }
 
-size_t curl_input_stream::buffer_input(unsigned char* data, size_t size, size_t nitems) {
+size_t hbc::curl_input_stream::buffer_input(unsigned char* data, size_t size, size_t nitems) {
 
   if (stream_state == STATE_INITIAL_READ) {
     stream_state = STATE_READING;
@@ -90,16 +89,16 @@ size_t curl_input_stream::buffer_input(unsigned char* data, size_t size, size_t 
   return size * nitems;
 }
 
-void* hbcn_curl::thread_that(void* cookie) {
+void* hbc::thread_that(void* cookie) {
 
   curl_input_stream* input_stream = (curl_input_stream*) cookie;
   input_stream->thread_this();
 }
 
-void curl_input_stream::thread_this() {
+void hbc::curl_input_stream::thread_this() {
 
   curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, BUFFERSIZE);
-  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &hbcn_curl::buffer_input);
+  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &hbc::buffer_input);
   curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
 
   stream_state = STATE_INITIAL_READ;
@@ -123,7 +122,7 @@ void curl_input_stream::thread_this() {
 /**
  * @return The number of bytes read or -1 if the end of the stream has been reached.
  */
-int hbcn_curl::curl_input_stream::read(unsigned char* data, int length) {
+int hbc::curl_input_stream::read(unsigned char* data, int length) {
 
   if (length <= 0) return 0;
   else if (stream_state == STATE_EOS && buffer->empty()) return -1;
@@ -132,7 +131,7 @@ int hbcn_curl::curl_input_stream::read(unsigned char* data, int length) {
     stream_state = STATE_OPEN;
 
     pthread_t pthread;
-    pthread_create(&pthread, 0, &hbcn_curl::thread_that, this);
+    pthread_create(&pthread, 0, &hbc::thread_that, this);
 
     pthread_mutex_lock(&waiting_mutex);
     pthread_cond_signal(&write_cond);

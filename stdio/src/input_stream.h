@@ -18,7 +18,7 @@
 #ifndef HBC_INPUT_STREAM_H
 #define HBC_INPUT_STREAM_H
 
-namespace hbcn_stdio {
+namespace hbc {
 
   class input_stream {
   

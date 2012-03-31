@@ -20,7 +20,7 @@
 
 #include "socket_burst.h"
 
-namespace hbcn_socket {
+namespace hbc {
 
   class hbc_socket {
   

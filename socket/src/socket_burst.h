@@ -18,7 +18,7 @@
 #ifndef HBC_SOCKET_BURST_H
 #define HBC_SOCKET_BURST_H
 
-namespace hbcn_socket {
+namespace hbc {
 
   // structure of a packet-burst header and payload
   enum {

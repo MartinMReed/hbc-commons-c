@@ -20,7 +20,7 @@
 #include "../libhbc_crypto/md5.h"
 
 #include "../libhbc_stdio/file_input_stream.h"
-using namespace hbcn_stdio;
+using namespace hbc;
 
 #include <string.h>
 

@@ -18,7 +18,7 @@
 #ifndef HBC_STDIO_H
 #define HBC_STDIO_H
 
-namespace hbcn_stdio {
+namespace hbc {
 
   class read_file_callback {
   

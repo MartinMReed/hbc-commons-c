@@ -19,7 +19,7 @@
 
 #include "time.h"
 
-namespace hbcn_time {
+namespace hbc {
 
   int __nsleep(const struct timespec* req) {
   
@@ -34,7 +34,7 @@ namespace hbcn_time {
   }
 }
 
-int hbcn_time::milisleep(unsigned long miliseconds) {
+int hbc::milisleep(unsigned long miliseconds) {
 
   long remainder = miliseconds % 1000L;
   

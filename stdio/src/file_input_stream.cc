@@ -24,7 +24,7 @@
 /*
  *
  */
-hbcn_stdio::file_input_stream::file_input_stream(const char* path) {
+hbc::file_input_stream::file_input_stream(const char* path) {
 
   this->path = path;
   
@@ -36,7 +36,7 @@ hbcn_stdio::file_input_stream::file_input_stream(const char* path) {
 /*
  *
  */
-hbcn_stdio::file_input_stream::~file_input_stream() {
+hbc::file_input_stream::~file_input_stream() {
 
   if (file) {
   
@@ -51,7 +51,7 @@ hbcn_stdio::file_input_stream::~file_input_stream() {
  * 
  * @return The number of bytes read or -1 if the end of the stream has been reached.
  */
-int hbcn_stdio::file_input_stream::read(unsigned char* data, int length) {
+int hbc::file_input_stream::read(unsigned char* data, int length) {
 
   if (length <= 0) {
   

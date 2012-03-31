@@ -18,7 +18,7 @@
 #ifndef HBC_TIME_H
 #define HBC_TIME_H
 
-namespace hbcn_time {
+namespace hbc {
 
   int milisleep(unsigned long miliseconds);
 }

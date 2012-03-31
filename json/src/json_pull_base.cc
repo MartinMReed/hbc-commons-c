@@ -21,7 +21,7 @@
 
 #include <string.h>
 
-hbcn_json::json_pull::json_pull(input_stream* input_stream) {
+hbc::json_pull::json_pull(input_stream* input_stream) {
 
   m_input_stream = input_stream;
   
@@ -34,7 +34,7 @@ hbcn_json::json_pull::json_pull(input_stream* input_stream) {
   push_and_set_state(STATE_VALUE);
 }
 
-hbcn_json::json_pull::~json_pull() {
+hbc::json_pull::~json_pull() {
 
   pos = 0;
   end = 0;
@@ -48,7 +48,7 @@ hbcn_json::json_pull::~json_pull() {
   }
 }
 
-int hbcn_json::json_pull::read() {
+int hbc::json_pull::read() {
 
   unsigned char buffer[1];
   m_input_stream->read(buffer, 1);
@@ -59,7 +59,7 @@ int hbcn_json::json_pull::read() {
   return buffer[0];
 }
 
-char hbcn_json::json_pull::next_value() {
+char hbc::json_pull::next_value() {
 
   char read = next_buffer_value();
 
@@ -73,7 +73,7 @@ char hbcn_json::json_pull::next_value() {
   return read;
 }
 
-char hbcn_json::json_pull::next_buffer_value() {
+char hbc::json_pull::next_buffer_value() {
 
   if (m_buffer.empty()) {
 
@@ -83,14 +83,14 @@ char hbcn_json::json_pull::next_buffer_value() {
   return m_buffer.first();
 }
 
-int hbcn_json::json_pull::return_value(int value, int state) {
+int hbc::json_pull::return_value(int value, int state) {
 
   m_buffer.pop_front();
   this->state = state;
   return value;
 }
 
-int hbcn_json::json_pull::next() {
+int hbc::json_pull::next() {
 
   char next = next_value();
 
@@ -114,7 +114,7 @@ int hbcn_json::json_pull::next() {
   throw -2;//"lexical error: " + next;
 }
 
-int hbcn_json::json_pull::value_state(char next) {
+int hbc::json_pull::value_state(char next) {
 
   switch (next) {
 
@@ -140,7 +140,7 @@ int hbcn_json::json_pull::value_state(char next) {
   }
 }
 
-int hbcn_json::json_pull::default_value_state(char next) {
+int hbc::json_pull::default_value_state(char next) {
 
   parse_and_set_variable();
   pop_state();
@@ -159,7 +159,7 @@ int hbcn_json::json_pull::default_value_state(char next) {
   return return_value(D_VARIABLE, state);
 }
 
-int hbcn_json::json_pull::array_state(char next) {
+int hbc::json_pull::array_state(char next) {
 
   if (next == D_SEPERATOR) {
 
@@ -198,7 +198,7 @@ int hbcn_json::json_pull::array_state(char next) {
   }
 }
 
-int hbcn_json::json_pull::default_array_state(char next) {
+int hbc::json_pull::default_array_state(char next) {
 
   parse_and_set_variable();
 
@@ -216,7 +216,7 @@ int hbcn_json::json_pull::default_array_state(char next) {
   return return_value(D_VARIABLE, state);
 }
 
-int hbcn_json::json_pull::object_state(char next) {
+int hbc::json_pull::object_state(char next) {
 
   if (next == D_SEPERATOR) {
 
@@ -252,12 +252,12 @@ int hbcn_json::json_pull::object_state(char next) {
   }
 }
 
-int hbcn_json::json_pull::null_or_empty(char* text) {
+int hbc::json_pull::null_or_empty(char* text) {
 
   return !text || strlen(text) == 0 || strcmp(text, "null") == 0;
 }
 
-void hbcn_json::json_pull::set_string(int trim_whitespace) {
+void hbc::json_pull::set_string(int trim_whitespace) {
 
   if (trim_whitespace) {
   
@@ -277,7 +277,7 @@ void hbcn_json::json_pull::set_string(int trim_whitespace) {
   }
 }
 
-void hbcn_json::json_pull::seek_level(int level) {
+void hbc::json_pull::seek_level(int level) {
 
   while (get_level() > level) {
 
@@ -285,12 +285,12 @@ void hbcn_json::json_pull::seek_level(int level) {
   }
 }
 
-int hbcn_json::json_pull::get_level() {
+int hbc::json_pull::get_level() {
 
   return state_stack.size();
 }
 
-void hbcn_json::json_pull::parse_and_set_string() {
+void hbc::json_pull::parse_and_set_string() {
 
   // remove the starting " character
   m_buffer.pop_front();
@@ -303,7 +303,7 @@ void hbcn_json::json_pull::parse_and_set_string() {
   set_string(0);
 }
 
-void hbcn_json::json_pull::parse_and_set_variable() {
+void hbc::json_pull::parse_and_set_variable() {
 
   end = index_of(PARSE_OPTIONS_VARIABLE);
 
@@ -313,7 +313,7 @@ void hbcn_json::json_pull::parse_and_set_variable() {
   m_buffer.prepend((char)-1);
 }
 
-int hbcn_json::json_pull::index_of(char* find) {
+int hbc::json_pull::index_of(char* find) {
 
   int previous[2];
   previous[0] = -1;
@@ -342,13 +342,13 @@ int hbcn_json::json_pull::index_of(char* find) {
   throw -5;//"missing closing characters";
 }
 
-void hbcn_json::json_pull::pop_state() {
+void hbc::json_pull::pop_state() {
 
   state = state_stack.last();
   state_stack.pop_back();
 }
 
-void hbcn_json::json_pull::push_and_set_state(int newState) {
+void hbc::json_pull::push_and_set_state(int newState) {
 
   state_stack.push_back(state);
   state = newState;

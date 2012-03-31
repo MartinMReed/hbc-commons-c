@@ -20,7 +20,7 @@
 
 #include "buffer.h"
 
-namespace hbcn_collections {
+namespace hbc {
 
   template<class T> class bounded_buffer : public buffer<T> {
   

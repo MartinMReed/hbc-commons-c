@@ -20,7 +20,7 @@
 
 #include "vector_buffer.h"
 
-namespace hbcn_collections {
+namespace hbc {
 
   class string_buffer {
   

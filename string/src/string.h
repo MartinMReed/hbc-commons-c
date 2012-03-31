@@ -24,7 +24,7 @@
 #define WHITESPACE ' '
 #define POUND_SIGN '#'
 
-namespace hbcn_string {
+namespace hbc {
 
   int is_whitespace(char c);
   int is_newline(char c);

@@ -19,14 +19,14 @@
 #define HBC_THREAD_QUEUE_H
 
 #include "runnable.h"
-using namespace hbcn_thread;
+using namespace hbc;
 
 #include <pthread.h>
 
 #include <queue>
 using namespace std;
 
-namespace hbcn_thread {
+namespace hbc {
   
   void* run(void* cookie);
   

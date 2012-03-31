@@ -38,9 +38,9 @@
 	NSData *decodedData = [string dataUsingEncoding:NSUTF8StringEncoding];
 	const unsigned char *decoded = (const unsigned char *)[decodedData bytes];
 	int decodedLength = [decodedData length];
-	int encodedLength = hbcn_base64::encoded_length(decodedLength);
-	unsigned char *encoded = (unsigned char *)malloc(sizeof(unsigned char)*encodedLength);
-	hbcn_base64::encode(decoded, encoded, decodedLength);
+	int encodedLength = hbc::encoded_length(decodedLength);
+	char *encoded = (char *)malloc(sizeof(char)*encodedLength);
+	hbc::encode(decoded, encoded, decodedLength);
 	
 	NSData *encodedData = [NSData dataWithBytes:encoded length:encodedLength];
 	free(encoded);

@@ -24,7 +24,7 @@
 /**
  * 
  */
-char* hbcn_string::memtrim(char* text) {
+char* hbc::memtrim(char* text) {
 
   int text_len = strlen(text);
   
@@ -41,7 +41,7 @@ char* hbcn_string::memtrim(char* text) {
 /**
  * 
  */
-int hbcn_string::is_whitespace(char c) {
+int hbc::is_whitespace(char c) {
 
   switch (c) {
   
@@ -59,7 +59,7 @@ int hbcn_string::is_whitespace(char c) {
 /**
  * 
  */
-int hbcn_string::is_newline(char c) {
+int hbc::is_newline(char c) {
   
   switch (c) {
   
@@ -78,7 +78,7 @@ int hbcn_string::is_newline(char c) {
  * @param text
  * @return
  */
-char* hbcn_string::trim(char* text) {
+char* hbc::trim(char* text) {
 
   int text_len = strlen(text);
   char* temp = (char*) calloc(text_len + 1, sizeof(char));
@@ -98,7 +98,7 @@ char* hbcn_string::trim(char* text) {
  * @param text
  * @return
  */
-char* hbcn_string::trim_inplace(char* text) {
+char* hbc::trim_inplace(char* text) {
 
   int text_len = strlen(text);
   
@@ -139,7 +139,7 @@ char* hbcn_string::trim_inplace(char* text) {
 /**
  * 
  */
-char** hbcn_string::split(char* text, char c) {
+char** hbc::split(char* text, char c) {
 
   int result_len = 1;
   char** result = (char**) calloc(result_len, sizeof(char*));

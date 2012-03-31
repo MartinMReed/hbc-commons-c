@@ -20,7 +20,7 @@
 #include <stdlib.h>
 using namespace std;
 
-namespace hbcn_collections {
+namespace hbc {
 
   template<class T> class enumeration {
   

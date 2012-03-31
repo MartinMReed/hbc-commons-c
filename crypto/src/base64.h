@@ -18,7 +18,7 @@
 #ifndef HBC_BASE64_H
 #define HBC_BASE64_H
 
-namespace hbcn_base64 {
+namespace hbc {
 
   int encoded_length(int decoded_length);
   int decoded_length(int encoded_length);

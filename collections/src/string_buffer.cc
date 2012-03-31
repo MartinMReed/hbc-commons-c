@@ -20,7 +20,7 @@
 /*
  *
  */
-hbcn_collections::string_buffer::string_buffer() {
+hbc::string_buffer::string_buffer() {
 
   // do nothing
 }
@@ -28,7 +28,7 @@ hbcn_collections::string_buffer::string_buffer() {
 /*
  *
  */
-hbcn_collections::string_buffer::~string_buffer() {
+hbc::string_buffer::~string_buffer() {
 
   // do nothing
 }
@@ -36,7 +36,7 @@ hbcn_collections::string_buffer::~string_buffer() {
 /**
  * 
  */
-char* hbcn_collections::string_buffer::to_string() {
+char* hbc::string_buffer::to_string() {
 
   return to_string(0, m_buffer.size());
 }
@@ -44,7 +44,7 @@ char* hbcn_collections::string_buffer::to_string() {
 /**
  * 
  */
-char* hbcn_collections::string_buffer::to_string(int start, int end) {
+char* hbc::string_buffer::to_string(int start, int end) {
 
   char* buffer = (char*)malloc((end-start+1)*sizeof(char));
   buffer[end-start] = 0;
@@ -60,7 +60,7 @@ char* hbcn_collections::string_buffer::to_string(int start, int end) {
 /**
  * 
  */
-void hbcn_collections::string_buffer::trim() {
+void hbc::string_buffer::trim() {
 
   while (!m_buffer.empty() && m_buffer.first() <= ' ') {
   
@@ -76,7 +76,7 @@ void hbcn_collections::string_buffer::trim() {
 /**
  * 
  */
-void hbcn_collections::string_buffer::append(const unsigned char& c) {
+void hbc::string_buffer::append(const unsigned char& c) {
 
   m_buffer.push_back(c);
 }
@@ -84,7 +84,7 @@ void hbcn_collections::string_buffer::append(const unsigned char& c) {
 /**
  * 
  */
-void hbcn_collections::string_buffer::append(const char& c) {
+void hbc::string_buffer::append(const char& c) {
 
   append((unsigned char)(c & 0xFF));
 }
@@ -92,7 +92,7 @@ void hbcn_collections::string_buffer::append(const char& c) {
 /**
  * 
  */
-void hbcn_collections::string_buffer::append(const unsigned char* c, int length) {
+void hbc::string_buffer::append(const unsigned char* c, int length) {
 
   for (int i = 0; i < length; i++) {
   
@@ -103,7 +103,7 @@ void hbcn_collections::string_buffer::append(const unsigned char* c, int length)
 /**
  * 
  */
-void hbcn_collections::string_buffer::append(const char* c, int length) {
+void hbc::string_buffer::append(const char* c, int length) {
 
   for (int i = 0; i < length; i++) {
   
@@ -114,7 +114,7 @@ void hbcn_collections::string_buffer::append(const char* c, int length) {
 /**
  * 
  */
-void hbcn_collections::string_buffer::prepend(const unsigned char& c) {
+void hbc::string_buffer::prepend(const unsigned char& c) {
 
   m_buffer.push_front(c);
 }
@@ -122,7 +122,7 @@ void hbcn_collections::string_buffer::prepend(const unsigned char& c) {
 /**
  * 
  */
-void hbcn_collections::string_buffer::prepend(const char& c) {
+void hbc::string_buffer::prepend(const char& c) {
 
   prepend((unsigned char)(c & 0xFF));
 }
@@ -130,7 +130,7 @@ void hbcn_collections::string_buffer::prepend(const char& c) {
 /**
  * 
  */
-void hbcn_collections::string_buffer::prepend(const unsigned char* c, int length) {
+void hbc::string_buffer::prepend(const unsigned char* c, int length) {
 
   for (int i = length-1; i >= 0; i--) {
   
@@ -141,7 +141,7 @@ void hbcn_collections::string_buffer::prepend(const unsigned char* c, int length
 /**
  * 
  */
-void hbcn_collections::string_buffer::prepend(const char* c, int length) {
+void hbc::string_buffer::prepend(const char* c, int length) {
 
   for (int i = length-1; i >= 0; i--) {
   
@@ -152,7 +152,7 @@ void hbcn_collections::string_buffer::prepend(const char* c, int length) {
 /**
  * 
  */
-const unsigned char hbcn_collections::string_buffer::operator[](const int index) {
+const unsigned char hbc::string_buffer::operator[](const int index) {
 
   return m_buffer[index];
 }
@@ -160,7 +160,7 @@ const unsigned char hbcn_collections::string_buffer::operator[](const int index)
 /**
  * 
  */
-void hbcn_collections::string_buffer::pop_front() {
+void hbc::string_buffer::pop_front() {
 
   m_buffer.pop_front();
 }
@@ -168,7 +168,7 @@ void hbcn_collections::string_buffer::pop_front() {
 /**
  * 
  */
-void hbcn_collections::string_buffer::pop_back() {
+void hbc::string_buffer::pop_back() {
 
   m_buffer.pop_back();
 }
@@ -176,7 +176,7 @@ void hbcn_collections::string_buffer::pop_back() {
 /**
  * 
  */
-int hbcn_collections::string_buffer::size() {
+int hbc::string_buffer::size() {
 
   m_buffer.size();
 }

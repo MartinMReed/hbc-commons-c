@@ -18,12 +18,12 @@
 #include <string.h>
 
 #include "base64.h"
-using namespace hbcn_base64;
+using namespace hbc;
 
 #define ENCODER "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 #define PADDING '='
 
-namespace hbcn_base64 {
+namespace hbc {
 
   void encode_block(unsigned char in[3], char out[4], int len) {
   
@@ -59,17 +59,17 @@ namespace hbcn_base64 {
   }
 }
 
-int hbcn_base64::encoded_length(int length) {
+int hbc::encoded_length(int length) {
 
   return (((length+2)-((length+2)%3))/3)*4;
 }
 
-int hbcn_base64::decoded_length(int length) {
+int hbc::decoded_length(int length) {
 
   return length*(3/4);
 }
 
-void hbcn_base64::encode(const unsigned char* decoded, char* encoded, int decoded_length) {
+void hbc::encode(const unsigned char* decoded, char* encoded, int decoded_length) {
 
   unsigned char in[3];
   char out[4];
@@ -95,7 +95,7 @@ void hbcn_base64::encode(const unsigned char* decoded, char* encoded, int decode
   }
 }
 
-void hbcn_base64::decode(const char* encoded, unsigned char* decoded, int encoded_length) {
+void hbc::decode(const char* encoded, unsigned char* decoded, int encoded_length) {
 
   char in[4];
   unsigned char out[3];

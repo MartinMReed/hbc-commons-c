@@ -23,7 +23,7 @@
 /**
  *
  */
-hbcn_thread::thread_queue::thread_queue(int thread_count) {
+hbc::thread_queue::thread_queue(int thread_count) {
   
   this->thread_count = thread_count;
   threads = (pthread_t**) calloc(thread_count, sizeof(pthread_t*));
@@ -34,7 +34,7 @@ hbcn_thread::thread_queue::thread_queue(int thread_count) {
 /**
  *
  */
-hbcn_thread::thread_queue::~thread_queue() {
+hbc::thread_queue::~thread_queue() {
 
   detach_all();
   
@@ -56,7 +56,7 @@ hbcn_thread::thread_queue::~thread_queue() {
 /**
  *
  */
-void hbcn_thread::thread_queue::join() {
+void hbc::thread_queue::join() {
 
   for (int i = 0; i < thread_count;) {
   
@@ -83,7 +83,7 @@ void hbcn_thread::thread_queue::join() {
 /**
  *
  */
-void* hbcn_thread::run(void* cookie) {
+void* hbc::run(void* cookie) {
 
   thread_queue* queue = (thread_queue*) cookie;
   
@@ -103,7 +103,7 @@ void* hbcn_thread::run(void* cookie) {
 /**
  *
  */
-void hbcn_thread::thread_queue::push(runnable* runnable) {
+void hbc::thread_queue::push(runnable* runnable) {
 
   if (runnable == 0) {
   
@@ -123,7 +123,7 @@ void hbcn_thread::thread_queue::push(runnable* runnable) {
     
     printf("creating new thread at pos %i.\n", i);
     threads[i] = new pthread_t();
-    pthread_create(threads[i], 0, &hbcn_thread::run, this);
+    pthread_create(threads[i], 0, &hbc::run, this);
   }
   
   pthread_mutex_unlock(&mutex);
@@ -132,7 +132,7 @@ void hbcn_thread::thread_queue::push(runnable* runnable) {
 /**
  *
  */
-runnable* hbcn_thread::thread_queue::pop() {
+runnable* hbc::thread_queue::pop() {
   
   runnable* runnable = 0;
   
@@ -152,7 +152,7 @@ runnable* hbcn_thread::thread_queue::pop() {
 /**
  *
  */
-void hbcn_thread::thread_queue::detach(pthread_t id) {
+void hbc::thread_queue::detach(pthread_t id) {
   
   pthread_mutex_lock(&mutex);
   
@@ -179,7 +179,7 @@ void hbcn_thread::thread_queue::detach(pthread_t id) {
 /**
  *
  */
-void hbcn_thread::thread_queue::detach_all() {
+void hbc::thread_queue::detach_all() {
   
   pthread_mutex_lock(&mutex);
   

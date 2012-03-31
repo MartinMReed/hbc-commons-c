@@ -20,7 +20,7 @@
 
 #include "libhbc_socket/socket_burst.h"
 
-namespace hbcn_arduino {
+namespace hbc {
 
   class ard_socket {
   

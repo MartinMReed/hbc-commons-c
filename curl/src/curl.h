@@ -20,7 +20,7 @@
 
 #include <curl/curl.h>
 
-namespace hbcn_curl {
+namespace hbc {
 
   class curler {
   

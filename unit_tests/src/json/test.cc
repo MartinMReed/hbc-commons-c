@@ -18,10 +18,10 @@
 #include "test.h"
 
 #include "../libhbc_stdio/file_input_stream.h"
-using namespace hbcn_stdio;
+using namespace hbc;
 
 #include "../libhbc_json/json_pull.h"
-using namespace hbcn_json;
+using namespace hbc;
 
 #include <string.h>
 

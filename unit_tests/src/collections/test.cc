@@ -19,7 +19,7 @@
 
 #include "../libhbc_collections/bounded_buffer.h"
 #include "../libhbc_collections/vector_buffer.h"
-using namespace hbcn_collections;
+using namespace hbc;
 
 #include <stdio.h>
 #include <string.h>

@@ -18,7 +18,7 @@
 #ifndef HBC_RUNNABLE_H
 #define HBC_RUNNABLE_H
 
-namespace hbcn_thread {
+namespace hbc {
 
   class runnable {
   

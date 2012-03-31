@@ -19,9 +19,9 @@
 #define HBC_CHUNK_H
 
 #include "libhbc_curl/curl.h"
-using namespace hbcn_curl;
+using namespace hbc;
 
-namespace hbcn_chunk {
+namespace hbc {
 
   size_t chunk_write(void* buffer, size_t size, size_t nitems, void* stream);
   

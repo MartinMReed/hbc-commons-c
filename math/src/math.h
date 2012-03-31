@@ -18,7 +18,7 @@
 #ifndef HBC_MATH_H
 #define HBC_MATH_H
 
-namespace hbcn_math {
+namespace hbc {
 
   int num_digits(int num);
 }

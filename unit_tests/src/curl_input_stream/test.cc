@@ -18,16 +18,21 @@
 #include "test.h"
 
 #include "../libhbc_crypto/md5.h"
-
 #include "../libhbc_curl/curl_input_stream.h"
-using namespace hbcn_curl;
+using namespace hbc;
 
 #include <string.h>
 
 int curl_input_stream_test() {
   
-  const char* url = "http://www.google.com/intl/en_ALL/images/srpr/logo1w.png";
-  input_stream* input_stream = new curl_input_stream(url);
+  CURL* curl = curl_easy_init();
+  curl_easy_setopt(curl, CURLOPT_HTTPGET, 1);
+  curl_easy_setopt(curl, CURLOPT_URL, "http://www.google.com/intl/en_ALL/images/srpr/logo1w.png");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1);
+  curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 15);
+  curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30);
+
+  input_stream* input_stream = new curl_input_stream(curl);
   
   unsigned char buffer[7409];
   

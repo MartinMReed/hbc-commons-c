@@ -19,12 +19,12 @@
 #define HBC_FILE_INPUT_STREAM_H
 
 #include "input_stream.h"
-using namespace hbcn_stdio;
+using namespace hbc;
 
 #include <stdio.h>
 #include <pthread.h>
 
-namespace hbcn_stdio {
+namespace hbc {
 
   class file_input_stream : public input_stream {
   

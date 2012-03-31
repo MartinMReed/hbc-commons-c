@@ -26,7 +26,7 @@
 /**
  *
  */
-hbcn_socket::socket_pair::socket_pair(socket_server* socket, int fd) {
+hbc::socket_pair::socket_pair(socket_server* socket, int fd) {
 
   this->socket = socket;
   this->fd = fd;
@@ -35,7 +35,7 @@ hbcn_socket::socket_pair::socket_pair(socket_server* socket, int fd) {
 /**
  *
  */
-hbcn_socket::socket_pair::~socket_pair() {
+hbc::socket_pair::~socket_pair() {
 
   disconnect();
 }
@@ -43,7 +43,7 @@ hbcn_socket::socket_pair::~socket_pair() {
 /**
  *
  */
-void hbcn_socket::socket_pair::disconnect() {
+void hbc::socket_pair::disconnect() {
 
   if (fd) {
   
@@ -55,7 +55,7 @@ void hbcn_socket::socket_pair::disconnect() {
 /**
  *
  */
-void hbcn_socket::socket_pair::start() {
+void hbc::socket_pair::start() {
   
   while (read());
 }

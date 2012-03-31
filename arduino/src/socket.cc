@@ -25,17 +25,15 @@
 #include <netinet/in.h>
 
 #include "libhbc_socket/socket_burst.h"
-using namespace hbcn_socket;
-
 #include "libhbc_math/math.h"
-using namespace hbcn_math;
+using namespace hbc;
 
 #include "socket.h"
 
 /**
  *
  */
-hbcn_arduino::ard_socket::ard_socket() {
+hbc::ard_socket::ard_socket() {
 
   read_buffer = new unsigned char[BURST_MAX];
   write_buffer = new unsigned char[BURST_MAX];
@@ -44,7 +42,7 @@ hbcn_arduino::ard_socket::ard_socket() {
 /**
  *
  */
-hbcn_arduino::ard_socket::~ard_socket() {
+hbc::ard_socket::~ard_socket() {
 
   delete read_buffer;
   read_buffer = 0;
@@ -63,7 +61,7 @@ hbcn_arduino::ard_socket::~ard_socket() {
  * @param payload The packet-burst payload.
  * @param length The byte count of the payload parameter.
  */
-void hbcn_arduino::ard_socket::write(const unsigned char* payload, int length) {
+void hbc::ard_socket::write(const unsigned char* payload, int length) {
 
   if (length > PAYLOAD_MAX) {
   
@@ -85,7 +83,7 @@ void hbcn_arduino::ard_socket::write(const unsigned char* payload, int length) {
  * @param payload The packet-burst payload.
  * @param length The byte count of the payload parameter.
  */
-int hbcn_arduino::ard_socket::write(const unsigned char* payload, int length, int offset) {
+int hbc::ard_socket::write(const unsigned char* payload, int length, int offset) {
 
   // if we add PAYLOAD_MAX to the length of what we have already sent
   // and it is greater than the total length, that means we are at
@@ -109,13 +107,13 @@ int hbcn_arduino::ard_socket::write(const unsigned char* payload, int length, in
   return payload_size;
 }
 
-unsigned char hbcn_arduino::ard_socket::ensured_read() {
+unsigned char hbc::ard_socket::ensured_read() {
 
   while (!available());
   return serial_read();
 }
 
-int hbcn_arduino::ard_socket::read(unsigned char* buffer) {
+int hbc::ard_socket::read(unsigned char* buffer) {
 
   buffer[socket_burst_chunked] = ensured_read();
   buffer[socket_burst_size] = ensured_read();
@@ -132,7 +130,7 @@ int hbcn_arduino::ard_socket::read(unsigned char* buffer) {
  * @return true if the Client/Server should continue
  * their conversation.
  */
-int hbcn_arduino::ard_socket::read() {
+int hbc::ard_socket::read() {
 
   bzero(read_buffer, BURST_MAX);
 
