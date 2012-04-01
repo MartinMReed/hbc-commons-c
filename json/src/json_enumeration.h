@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 Martin M Reed
+ * Copyright (c) 2010-2012 Martin M Reed
  * Copyright (c) 2008-2010 Metova, Inc.
  * Copyright (c) 2007 Google Inc.
  *
