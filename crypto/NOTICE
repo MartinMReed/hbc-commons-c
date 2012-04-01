@@ -3,3 +3,9 @@ This is a copy of libmd5-rfc for use with the org.hardisonbrewing package.
 This copy of the source may include additions or changes.
 For a copy of the original source please visit the project's website at:
 http://www.sourceforge.net/projects/libmd5-rfc
+
+This notice is included for the following files: HMAC_SHA1.cpp, HMAC_SHA1.h, SHA1.cpp, SHA1.h
+This is a copy of HMAC_SHA1 for use with the org.hardisonbrewing package.
+This copy of the source may include additions or changes.
+For a copy of the original source please visit the project's website at:
+http://www.codeproject.com/Articles/22118/C-Class-Implementation-of-HMAC-SHA
