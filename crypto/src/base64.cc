@@ -23,15 +23,16 @@
 namespace hbc {
 
   void encode_block(unsigned char in[3], char out[4], int len) {
-  
+
     out[0] = ENCODER[in[0] >> 2];
     out[1] = ENCODER[((in[0] & 0x03) << 4) | ((in[1] & 0xf0) >> 4)];
-    out[2] = (len > 1) ? ENCODER[((in[1] & 0x0f) << 2) | ((in[2] & 0xc0) >> 6)] : PADDING;
+    if (len > 2) out[2] = ENCODER[((in[1] & 0x0f) << 2) | ((in[2] & 0xc0) >> 6)];
+    else out[2] = (len > 1) ? ENCODER[(in[1] & 0x0f) << 2] : PADDING;
     out[3] = (len > 2) ? ENCODER[in[2] & 0x3f] : PADDING;
   }
   
   void decode_block(char in[4], unsigned char out[3]) {
-  
+
     out[0] = (in[0] << 0x02) | ((in[1] & 0x30) >> 4);
     out[1] = ((in[1] & 0x0f) << 4) | ((in[2] & 0x3c) >> 2);
     out[2] = ((in[2] & 0x03) << 6) | in[3];
@@ -73,17 +74,13 @@ void hbc::encode(const unsigned char* decoded, char* encoded, int decoded_length
   
   for (int i = 0, j = 0; i < decoded_length; i += 3, j += 4) {
   
-    // do not access the input string
-    // using the array accessing style
-    // because we may be at the end and
-    // get a null pointer
-    in[0] = *(decoded+i+0);
-    in[1] = *(decoded+i+1);
-    in[2] = *(decoded+i+2);
+    int remaining = decoded_length - i;
+
+    in[0] = decoded[i];
+    in[1] = remaining > 1 ? decoded[i+1] : 0;
+    in[2] = remaining > 2 ? decoded[i+2] : 0;
     
-    // length is sent incase we have gone
-    // past the end of our input string
-    encode_block(in, out, decoded_length - i);
+    encode_block(in, out, remaining);
     
     encoded[j+0] = out[0];
     encoded[j+1] = out[1];

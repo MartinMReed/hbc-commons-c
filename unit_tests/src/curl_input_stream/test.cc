@@ -42,6 +42,8 @@ int curl_input_stream_test() {
   
     total += read;
   }
+
+  curl_easy_cleanup(curl);
   
   FILE* file = fopen("test.png", "w");
   fwrite(buffer, sizeof(unsigned char), total, file);
