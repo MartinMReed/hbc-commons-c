@@ -26,7 +26,6 @@
 
 #include "libhbc_socket/socket_burst.h"
 #include "libhbc_math/math.h"
-using namespace hbc;
 
 #include "socket.h"
 

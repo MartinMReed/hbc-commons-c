@@ -19,12 +19,10 @@
 #define HBC_THREAD_QUEUE_H
 
 #include "runnable.h"
-using namespace hbc;
 
 #include <pthread.h>
 
 #include <queue>
-using namespace std;
 
 namespace hbc {
   
@@ -51,7 +49,7 @@ namespace hbc {
     
     pthread_mutex_t mutex;
     
-    queue<runnable*> runnables;
+    std::queue<runnable*> runnables;
     
     void detach(pthread_t id);
     void detach_all();

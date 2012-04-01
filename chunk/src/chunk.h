@@ -19,7 +19,6 @@
 #define HBC_CHUNK_H
 
 #include "libhbc_curl/curl.h"
-using namespace hbc;
 
 namespace hbc {
 

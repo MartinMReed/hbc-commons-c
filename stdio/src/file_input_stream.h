@@ -19,7 +19,6 @@
 #define HBC_FILE_INPUT_STREAM_H
 
 #include "input_stream.h"
-using namespace hbc;
 
 #include <stdio.h>
 #include <pthread.h>

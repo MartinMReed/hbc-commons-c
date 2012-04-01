@@ -18,11 +18,8 @@
 
 #include "json_pull.h"
 #include "json_syntax.h"
-using namespace hbc;
 
-#include <string.h>
-
-json_enumeration* hbc::json_pull::object_elements() {
+hbc::json_enumeration* hbc::json_pull::object_elements() {
 
   if (next(D_START_OBJECT)) {
   
@@ -34,7 +31,7 @@ json_enumeration* hbc::json_pull::object_elements() {
   }
 }
 
-json_enumeration* hbc::json_pull::array_elements() {
+hbc::json_enumeration* hbc::json_pull::array_elements() {
 
   if (next(D_START_ARRAY)) {
   

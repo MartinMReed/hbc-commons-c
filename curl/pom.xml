@@ -47,10 +47,5 @@
 			<artifactId>libhbc_math</artifactId>
 			<classifier>a</classifier>
 		</dependency>
-		<dependency>
-			<groupId>org.hardisonbrewing</groupId>
-			<artifactId>libhbc_collections</artifactId>
-			<classifier>a</classifier>
-		</dependency>
 	</dependencies>
 </project>

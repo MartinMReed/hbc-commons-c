@@ -39,11 +39,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
-			<artifactId>libhbc_collections</artifactId>
-			<classifier>a</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_stdio</artifactId>
 			<classifier>a</classifier>
 		</dependency>

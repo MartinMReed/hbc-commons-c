@@ -20,13 +20,11 @@
 #define HBC_JSON_PULL_H
 
 #include "libhbc_stdio/input_stream.h"
-using namespace hbc;
-
-#include "libhbc_collections/enumeration.h"
-#include "libhbc_collections/string_buffer.h"
-using namespace hbc;
-
+#include "libhbc_stdio/enumeration.h"
 #include "json_enumeration.h"
+
+#include <vector>
+#include <deque>
 
 namespace hbc {
 
@@ -141,8 +139,8 @@ namespace hbc {
     int end;
     
     input_stream* m_input_stream;
-    vector_buffer<int> state_stack;
-    string_buffer m_buffer;
+    std::vector<int> state_stack;
+    std::deque<unsigned char> m_buffer;
     
     char* string_value;
     

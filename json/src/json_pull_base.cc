@@ -52,7 +52,7 @@ int hbc::json_pull::read() {
 
   unsigned char buffer[1];
   m_input_stream->read(buffer, 1);
-  m_buffer.append(buffer[0]);
+  m_buffer.push_back(buffer[0]);
   
   pos++;
   
@@ -80,7 +80,7 @@ char hbc::json_pull::next_buffer_value() {
     read();
   }
 
-  return m_buffer.first();
+  return m_buffer.front();
 }
 
 int hbc::json_pull::return_value(int value, int state) {
@@ -124,7 +124,7 @@ int hbc::json_pull::value_state(char next) {
       pop_state();
       
       // push a dummy character
-      m_buffer.prepend((char)-1);
+      m_buffer.push_front((char)-1);
       
       return return_value(D_STRING, state);
     }
@@ -257,11 +257,22 @@ int hbc::json_pull::null_or_empty(char* text) {
   return !text || strlen(text) == 0 || strcmp(text, "null") == 0;
 }
 
+bool is_whitespace(unsigned char c) {
+
+  return strstr(" \t\n\r", (char*)&c) >= 0;
+}
+
 void hbc::json_pull::set_string(int trim_whitespace) {
 
   if (trim_whitespace) {
   
-    m_buffer.trim();
+    while (!m_buffer.empty() && is_whitespace(m_buffer.front())) {
+      m_buffer.pop_front();
+    }
+
+    while (!m_buffer.empty() && is_whitespace(m_buffer.back())) {
+      m_buffer.pop_back();
+    }
   }
   
   if (string_value) {
@@ -269,7 +280,12 @@ void hbc::json_pull::set_string(int trim_whitespace) {
     free(string_value);
   }
   
-  string_value = m_buffer.to_string(0, end);
+  string_value = new char[end + 1];
+  string_value[end-1] = NULL;
+
+  for (int i = 0; i < end; i++) {
+    string_value[i] = (char)m_buffer[i];
+  }
   
   for (int i = 0; i < end; i++) {
   
@@ -310,7 +326,7 @@ void hbc::json_pull::parse_and_set_variable() {
   set_string(1);
 
   // push a dummy character
-  m_buffer.prepend((char)-1);
+  m_buffer.push_front((char)-1);
 }
 
 int hbc::json_pull::index_of(char* find) {
@@ -344,7 +360,7 @@ int hbc::json_pull::index_of(char* find) {
 
 void hbc::json_pull::pop_state() {
 
-  state = state_stack.last();
+  state = state_stack.back();
   state_stack.pop_back();
 }
 

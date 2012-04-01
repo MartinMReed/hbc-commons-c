@@ -18,11 +18,10 @@
 #define THREAD_TEST_H
 
 #include "../libhbc_thread/thread_queue.h"
-using namespace hbc;
 
 #include <stdio.h>
 
-class thread_runnable : public runnable {
+class thread_runnable : public hbc::runnable {
 
   public:
   
@@ -33,7 +32,6 @@ class thread_runnable : public runnable {
   
   void run() {
   
-    //sleep(1);
     printf("%i\n", i);
   }
   

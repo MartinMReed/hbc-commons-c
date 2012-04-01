@@ -18,28 +18,25 @@
 #include "test.h"
 
 #include "../libhbc_stdio/file_input_stream.h"
-using namespace hbc;
-
 #include "../libhbc_json/json_pull.h"
-using namespace hbc;
 
 #include <string.h>
 
-void parse_objects(json_pull& parser, int level);
-void parse_feed(json_pull& parser, int level);
+void parse_objects(hbc::json_pull& parser, int level);
+void parse_feed(hbc::json_pull& parser, int level);
 
 int json_test() {
   
-  file_input_stream input_stream("json/watch_on_mobile.json");
-  json_pull parser(&input_stream);
+  hbc::file_input_stream input_stream("json/watch_on_mobile.json");
+  hbc::json_pull parser(&input_stream);
   parse_objects(parser, 0);
   
   return 0;
 }
 
-void parse_objects(json_pull& parser, int level) {
+void parse_objects(hbc::json_pull& parser, int level) {
 
-  json_enumeration* enumerator = parser.object_elements();
+  hbc::json_enumeration* enumerator = parser.object_elements();
   
   while (enumerator->has_more_elements()) {
   
@@ -62,9 +59,9 @@ void parse_objects(json_pull& parser, int level) {
   free(enumerator);
 }
 
-void getT(json_pull& parser) {
+void getT(hbc::json_pull& parser) {
 
-  json_enumeration* enumerator = parser.object_elements();
+  hbc::json_enumeration* enumerator = parser.object_elements();
   
   while (enumerator->has_more_elements()) {
   
@@ -77,9 +74,9 @@ void getT(json_pull& parser) {
   free(enumerator);
 }
 
-void parse_feed(json_pull& parser, int level) {
+void parse_feed(hbc::json_pull& parser, int level) {
 
-  json_enumeration* enumerator = parser.object_elements();
+  hbc::json_enumeration* enumerator = parser.object_elements();
   
   while (enumerator->has_more_elements()) {
   

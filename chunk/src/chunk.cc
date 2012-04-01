@@ -21,7 +21,6 @@
 #include <string.h>
 
 #include "libhbc_math/math.h"
-using namespace hbc;
 
 #include "chunk.h"
 

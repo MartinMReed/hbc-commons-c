@@ -16,6 +16,7 @@
 				<directory>src</directory>
 				<includes>
 					<include>**/*.h</include>
+					<include>**/*.xml</include>
 				</includes>
 			</resource>
 		</resources>
@@ -54,11 +55,6 @@
 		<dependency>
 			<groupId>org.hardisonbrewing</groupId>
 			<artifactId>libhbc_curl</artifactId>
-			<classifier>a</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.hardisonbrewing</groupId>
-			<artifactId>libhbc_collections</artifactId>
 			<classifier>a</classifier>
 		</dependency>
 		<dependency>

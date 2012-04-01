@@ -19,8 +19,7 @@
 #ifndef HBC_JSON_ENUMERATION_H
 #define HBC_JSON_ENUMERATION_H
 
-#include "libhbc_collections/enumeration.h"
-using namespace hbc;
+#include "libhbc_stdio/enumeration.h"
 
 namespace hbc {
 

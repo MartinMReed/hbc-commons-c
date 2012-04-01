@@ -19,7 +19,6 @@
 
 #include "../libhbc_crypto/md5.h"
 #include "../libhbc_curl/curl_input_stream.h"
-using namespace hbc;
 
 #include <string.h>
 
@@ -32,14 +31,14 @@ int curl_input_stream_test() {
   curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 15);
   curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30);
 
-  input_stream* input_stream = new curl_input_stream(curl);
+  hbc::curl_input_stream input_stream(curl);
   
-  unsigned char buffer[7409];
+  unsigned char buffer[7330];
   
   int total = 0;
   
   int read;
-  while ((read = input_stream->read(buffer+total, 256)) != -1) {
+  while ((read = input_stream.read(buffer+total, 256)) != -1) {
   
     total += read;
   }
@@ -48,13 +47,13 @@ int curl_input_stream_test() {
   fwrite(buffer, sizeof(unsigned char), total, file);
   fclose(file);
   
-  printf("actual[%i], expected[7409]\n", total);
+  printf("actual[%i], expected[7330]\n", total);
   
   md5_state_t state;
   md5_byte_t digest[16];
   
   md5_init(&state);
-  md5_append(&state, (const md5_byte_t*)buffer, 7409);
+  md5_append(&state, (const md5_byte_t*)buffer, total);
   md5_finish(&state, digest);
   
   char hex_output[33];
@@ -65,9 +64,9 @@ int curl_input_stream_test() {
     sprintf(hex_output+(i*2), "%02x", digest[i]);
   }
   
-  printf("actual[%s], expected[47a50c26d5a8a46a13ec6f24290b5d0c]\n", hex_output);
+  printf("actual[%s], expected[e04c18d9aa6931e0a7e8cf91245aa791]\n", hex_output);
   
-  if (strcmp(hex_output, "47a50c26d5a8a46a13ec6f24290b5d0c") != 0) {
+  if (strcmp(hex_output, "e04c18d9aa6931e0a7e8cf91245aa791") != 0) {
   
     throw -1;
   }

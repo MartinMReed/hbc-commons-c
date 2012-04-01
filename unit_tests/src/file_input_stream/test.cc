@@ -18,15 +18,13 @@
 #include "test.h"
 
 #include "../libhbc_crypto/md5.h"
-
 #include "../libhbc_stdio/file_input_stream.h"
-using namespace hbc;
 
 #include <string.h>
 
 int file_input_stream_test() {
   
-  file_input_stream input_stream("tinyxml/utf8test.xml");
+  hbc::file_input_stream input_stream("tinyxml/utf8test.xml");
   
   int total = 0;
   unsigned char buffer[690];

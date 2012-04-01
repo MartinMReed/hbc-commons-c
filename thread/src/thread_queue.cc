@@ -132,7 +132,7 @@ void hbc::thread_queue::push(runnable* runnable) {
 /**
  *
  */
-runnable* hbc::thread_queue::pop() {
+hbc::runnable* hbc::thread_queue::pop() {
   
   runnable* runnable = 0;
   

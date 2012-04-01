@@ -19,21 +19,19 @@
 
 int thread_test() {
   
-  thread_queue thread_queue(3);
+  hbc::thread_queue queue(3);
   
   for (int i = 0; i < 10; i++) {
-  
-    thread_queue.push(new thread_runnable(i));
+    queue.push(new thread_runnable(i));
   }
   
-  thread_queue.join();
+  queue.join();
   
   for (int i = 10; i < 20; i++) {
-  
-    thread_queue.push(new thread_runnable(i));
+    queue.push(new thread_runnable(i));
   }
   
-  thread_queue.join();
+  queue.join();
   
   return 0;
 }

@@ -21,7 +21,6 @@
 		<module>thread</module>
 <!-- 		<module>tbxml</module> -->
 		<module>tinyxml</module>
-		<module>collections</module>
 		<module>json</module>
 		<module>arduino</module>
 		<module>unit_tests</module>
@@ -91,12 +90,6 @@
 			<dependency>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>libhbc_thread</artifactId>
-				<version>${project.version}</version>
-				<classifier>a</classifier>
-			</dependency>
-			<dependency>
-				<groupId>org.hardisonbrewing</groupId>
-				<artifactId>libhbc_collections</artifactId>
 				<version>${project.version}</version>
 				<classifier>a</classifier>
 			</dependency>
