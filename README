@@ -1,2 +1,2 @@
 To build this you need to use Maven with the maven-cxx-plugin:
-https://github.com/hallowtech/maven-cxx-plugin
+https://github.com/hardisonbrewing/maven-cxx-plugin
