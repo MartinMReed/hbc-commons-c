@@ -19,6 +19,8 @@
 #include "json_pull.h"
 #include "json_syntax.h"
 
+#include <string.h>
+
 hbc::json_enumeration* hbc::json_pull::object_elements() {
 
   if (next(D_START_OBJECT)) {
