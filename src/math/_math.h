@@ -22,6 +22,8 @@ namespace hbc
 {
 
 int num_digits(int num);
+void int_to_bytes(int i, unsigned char* b);
+int bytes_to_int(unsigned char* b);
 
 }
 

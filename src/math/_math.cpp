@@ -23,3 +23,21 @@ int hbc::num_digits(int num)
 {
     return (num == 0) ? 1 : floor(log10(num) + 1);
 }
+
+void int_to_bytes(int i, unsigned char* b)
+{
+    b[3] = i & 0xFF;
+    b[2] = (i >> 8) & 0xFF;
+    b[1] = (i >> 16) & 0xFF;
+    b[0] = (i >> 24) & 0xFF;
+}
+
+int bytes_to_int(unsigned char* b)
+{
+    int value = 0;
+    for (int j = 0; j < 4; j++)
+    {
+        value = (value << 8) | (b[j] & 0xFF);
+    }
+    return value;
+}
