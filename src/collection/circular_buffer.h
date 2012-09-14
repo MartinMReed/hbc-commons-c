@@ -27,20 +27,33 @@ class circular_buffer
 {
 public:
 
-    circular_buffer(ssize_t size);
+    circular_buffer(int size);
     virtual ~circular_buffer();
 
-    ssize_t read(unsigned char* buf, ssize_t size);
-    ssize_t write(unsigned char* buf, ssize_t size);
+    int peek(unsigned char* buf, int offset, int size);
+    int peek(unsigned char* buf, int size);
 
-    ssize_t size();
-    ssize_t capacity();
+    int read(unsigned char* buf, int size);
+    int read(unsigned char* buf, int offset, int len);
+
+    int write(unsigned char* buf, int size);
+
+    int find(unsigned char* buf, int offset, int len);
+    int find(unsigned char* buf, int len);
+
+    int erase(int offset, int len);
+
+    int size();
+    int capacity();
+    int available();
     bool empty();
 
 private:
 
+    int read(unsigned char* buf, int offset, int len, bool reduce);
+
     unsigned char* m_buffer;
-    ssize_t m_capacity, m_size, m_start;
+    int m_capacity, m_size, m_start;
 };
 
 }
