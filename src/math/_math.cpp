@@ -24,7 +24,7 @@ int hbc::num_digits(int num)
     return (num == 0) ? 1 : floor(log10(num) + 1);
 }
 
-void int_to_bytes(int i, unsigned char* b)
+void hbc::int_to_bytes(int i, unsigned char* b)
 {
     b[3] = i & 0xFF;
     b[2] = (i >> 8) & 0xFF;
@@ -32,7 +32,7 @@ void int_to_bytes(int i, unsigned char* b)
     b[0] = (i >> 24) & 0xFF;
 }
 
-int bytes_to_int(unsigned char* b)
+int hbc::bytes_to_int(unsigned char* b)
 {
     int value = 0;
     for (int j = 0; j < 4; j++)
