@@ -77,22 +77,24 @@ int hbc::circular_buffer::find(unsigned char* buf, int offset, int len)
     return i >= end ? -1 : i;
 }
 
+int hbc::circular_buffer::read(unsigned char* buf, int len)
+{
+    return read(buf, 0, len);
+}
+
+int hbc::circular_buffer::read(unsigned char* buf, int offset, int len)
+{
+    int r = peek(buf, offset, len);
+    erase(offset, len);
+    return r;
+}
+
 int hbc::circular_buffer::peek(unsigned char* buf, int len)
 {
     return peek(buf, 0, len);
 }
 
 int hbc::circular_buffer::peek(unsigned char* buf, int offset, int len)
-{
-    return read(buf, offset, len, false);
-}
-
-int hbc::circular_buffer::read(unsigned char* buf, int len)
-{
-    return read(buf, 0, len, true);
-}
-
-int hbc::circular_buffer::read(unsigned char* buf, int offset, int len, bool reduce)
 {
     if (m_size == 0 || len <= 0 || offset < 0) return 0;
     len = std::min(len, m_size - offset);
@@ -108,12 +110,6 @@ int hbc::circular_buffer::read(unsigned char* buf, int offset, int len, bool red
         read += r;
     }
     while (read < len);
-
-    if (reduce)
-    {
-        m_start = start;
-        m_size -= read;
-    }
 
     return read;
 }
