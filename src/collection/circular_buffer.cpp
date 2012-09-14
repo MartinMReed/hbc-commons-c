@@ -89,12 +89,7 @@ int hbc::circular_buffer::peek(unsigned char* buf, int offset, int len)
 
 int hbc::circular_buffer::read(unsigned char* buf, int len)
 {
-    return read(buf, 0, len);
-}
-
-int hbc::circular_buffer::read(unsigned char* buf, int offset, int len)
-{
-    return read(buf, offset, len, true);
+    return read(buf, 0, len, true);
 }
 
 int hbc::circular_buffer::read(unsigned char* buf, int offset, int len, bool reduce)

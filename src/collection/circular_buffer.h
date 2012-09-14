@@ -34,7 +34,6 @@ public:
     int peek(unsigned char* buf, int size);
 
     int read(unsigned char* buf, int size);
-    int read(unsigned char* buf, int offset, int len);
 
     int write(unsigned char* buf, int size);
 
