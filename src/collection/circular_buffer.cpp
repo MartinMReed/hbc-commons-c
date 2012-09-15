@@ -85,7 +85,7 @@ int hbc::circular_buffer::read(unsigned char* buf, int len)
 int hbc::circular_buffer::read(unsigned char* buf, int offset, int len)
 {
     int r = peek(buf, offset, len);
-    erase(offset, len);
+    erase(offset, r);
     return r;
 }
 
