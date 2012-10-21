@@ -15,33 +15,29 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <sys/time.h>
 #include <time.h>
 
-#include "time.h"
+#include "_time.h"
 
-namespace hbc {
-
-  int __nsleep(const struct timespec* req) {
-  
-    struct timespec rem;
-    
-    if(nanosleep(req, &rem) == -1) {
-      __nsleep(&rem);
-    }
-    else {
-      return 1;
-    }
-  }
+long hbc::current_time_millis()
+{
+    struct timeval now;
+    gettimeofday(&now, 0);
+    return (now.tv_sec * 1000L) + (now.tv_usec / 1000L);
 }
 
-int hbc::milisleep(unsigned long miliseconds) {
+void hbc::milisleep(long miliseconds)
+{
+    long remainder = miliseconds % 1000L;
 
-  long remainder = miliseconds % 1000L;
-  
-  struct timespec req;
-  req.tv_sec = (miliseconds - remainder) / 1000L;
-  req.tv_nsec = remainder * 1000000L;
-  __nsleep(&req);
-  
-  return 1;
+    struct timespec req;
+    req.tv_sec = (miliseconds - remainder) / 1000L;
+    req.tv_nsec = remainder * 1000000L;
+
+    struct timespec rem;
+    while (nanosleep(&req, &rem) > -1)
+    {
+        req = rem;
+    }
 }

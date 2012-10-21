@@ -18,9 +18,13 @@
 #ifndef HBC_TIME_H
 #define HBC_TIME_H
 
-namespace hbc {
+namespace hbc
+{
 
-  int milisleep(unsigned long miliseconds);
+long current_time_millis();
+
+void milisleep(long miliseconds);
+
 }
 
 #endif
