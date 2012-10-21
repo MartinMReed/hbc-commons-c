@@ -6,9 +6,6 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>${project.artifactId}</name>
 	<packaging>a</packaging>
-	<properties>
-		<maven.cxx.version>1.1.19-SNAPSHOT</maven.cxx.version>
-	</properties>
 	<build>
 		<resources>
 			<resource>
@@ -22,6 +19,7 @@
 			<plugin>
 				<groupId>org.hardisonbrewing</groupId>
 				<artifactId>maven-cxx-plugin</artifactId>
+				<version>1.1.19-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
 					<sources>
@@ -40,7 +38,6 @@
 					<groupId>org.hardisonbrewing</groupId>
 					<artifactId>maven-cxx-plugin</artifactId>
 					<extensions>true</extensions>
-					<version>${maven.cxx.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
